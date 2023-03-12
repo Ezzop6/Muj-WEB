@@ -1,11 +1,21 @@
 from flask import Flask
 import os
 from customtools import *
-from routes import modul
 
 app = Flask(__name__)
-app.register_blueprint(modul, url_prefix='/')
 
+@app.route('/')
+def home():
+    return "index page"
+
+@app.route('/about/')
+def about():
+    return 'About'
+
+
+@app.route('/hello/')
+def hello():
+    return 'hello'
 
 
 
