@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hlavni strana">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/normalise.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/style.css' ) }}">
+    <link rel="icon" type="image/png" href="{{ url_for( 'static', filename='../static/img/logo.png' ) }}">
+    <title>{% block title %} Base html {% endblock %}</title>
+</head>
+<body>
+    <header>
+        {% block header %}
+        <div class="container_nav">
+            <div class="logo">
+                <img class="logo_img" src="{{ url_for( 'static', filename='../static/img/logo.png' ) }}" alt="logo pojistovny">
+                <div class="nazev_pojistovny">
+                    <h1>Poslední naděje</h1>
+                    <span> - </span>
+                    <span class="slogan">vaše jistota.</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="menu">
+                    {% if current_user.is_authenticated and current_user.role == "admin" %}
+                    <li class="menu_item"><a class="btn" href="{{ url_for('admin_page') }}">Administrace</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('edit_products_page') }}">Správa produktů</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('edit_users_page') }}">Správa uživatelů</a></li>
+
+                    {% endif %}
+                    <li class="menu_item"><a class="btn" href="/zatim jsem neresil">O nás</a></li>
+                    <li class="menu_item"><a class="btn" href="/zatim jsem neresil">Kontakt</a></li>
+                    {% if not current_user.is_authenticated %}
+                    <li class="menu_item"><a class="btn" href="{{ url_for('login_page') }}">Přihlášení</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('register_page') }}">Registrace</a></li>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                    <li class="menu_item"><a class="btn" href="{{ url_for('logout') }}">Odhlášení</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('user_page',login = current_user.login) }}">Můj účet</a></li>
+                    {% endif %}
+                    <!--TODO:remove this after development-->
+                    <li class="menu_item"><a class="btn" href="{{ url_for('login_test_user') }}">login_test_user</a></li>
+                </ul>
+            </nav>
+        </div>
+        {% endblock %}
+    </header>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+    <footer>
+        {% block footer %}
+        <div class="footer_info">
+            <section class="kontakt">
+                <div class="container">
+                    <div class="kontakt_info">
+                        <h2>Kontakt</h2>
+                        <p>Poslední naděje</p>
+                        <p>Grimmauldovo náměstí 12</p>
+                        <p>Londýn</p>
+                        <p>tel.: 123 456 789</p>
+                        <a class="btn" href="mailto:info@vasejednoduchaadresa.cz">Kontaktujte nás</a>
+                    </div>
+                </div>
+            </section>
+            <section class="about_as">
+                <p>Jsme nezávislá pojistná agentura, která se zaměřuje na poskytování kvalitních a přizpůsobených řešení pro vaše pojištění. Naše společnost má dlouholeté zkušenosti v oboru a naši odborníci vám poskytnou vysokou úroveň služeb a poradenství. Cílem naší společnosti je pomoci našim klientům chránit svůj majetek a zabezpečit svou budoucnost. Kontaktujte nás a rádi vám pomůžeme najít nejlepší řešení pro vaše potřeby</p>
+            </section>
+            <section class="follow">
+                <h2>Sledujte nás</h2>
+                <div class="social_button">
+                    <a class="btn" href="https://www.facebook.com/"><img src="{{ url_for( 'static', filename='../static/img/facebook.png' ) }}" alt="facebook"></a>
+                    <a class="btn" href="https://www.instagram.com/"><img src="{{ url_for( 'static', filename='../static/img/instagram.png' ) }}" alt="instagram"></a>
+                    <a class="btn" href="https://twitter.com/"><img src="{{ url_for( 'static', filename='../static/img/twitter.png' ) }}" alt="twitter"></a>
+                </div>
+            </section>
+        </div>
+        {% endblock %}
+    </footer>
+</body>
+</html>
+
