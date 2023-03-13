@@ -1,16 +1,16 @@
 from flask import Blueprint, render_template
 
-modul = Blueprint('modul', __name__)
+bl_main_pages = Blueprint('modul', __name__)
 
-@modul.route('/')
+@bl_main_pages.route('/')
 def home():
     return "index page"
 
-@modul.route('/about/')
+@bl_main_pages.route('/about/')
 def about():
     return 'About'
 
 
-@modul.route('/hello/')
+@bl_main_pages.route('/hello/')
 def hello():
     return 'hello'
