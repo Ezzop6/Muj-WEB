@@ -16,21 +16,45 @@
         {% block header %}
         <div>
             <a href="{{ url_for( 'main_pages.main_page' ) }}">
-                <img src="{{ url_for( 'static', filename='../static/img/logo.png' ) }}" alt="logo">
+                <img src="#" alt="logo">
             </a>
         </div>
-        <div>
+        <div class="navbar">
             <ul>
-                <li><a href="{{ url_for( 'main_pages.main_page' ) }}">Domů</a></li>
-                <li><a href="{{ url_for( 'main_pages.about' ) }}">O mně</a></li>
+                <li><a href="#">
+                        <div class="buttons">
+                            <button class="btn"><span></span>
+                                <p data-start="good luck!" data-text="Na tomhle jsem pracoval" data-title="Projekty"></p>
+                            </button>
+                        </div>
+                    </a>
+                </li>
+                <li><a href="#">
+                    <div class="buttons">
+                        <button class="btn"><span></span>
+                            <p data-start="good luck!" data-text="Info" data-title="O mně"></p>
+                        </button>
+                    </div>
+                </a>
+            </li>
+            <li><a href="mailto:ezzop6@gmail.com">
+                <div class="buttons">
+                    <button class="btn"><span></span>
+                        <p data-start="good luck!" data-text="Sorry jen email" data-title="Kontakt"></p>
+                    </button>
+                </div>
+            </a>
+        </li>
             </ul>
         </div>
         {% endblock %}
     </header>
 
-{% block content %}
+    <section>
+        {% block section %}
+        {% endblock %}
+    </section>
 
-{% endblock %}
 
     <footer>
         {% block footer %}
