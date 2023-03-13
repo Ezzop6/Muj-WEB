@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Edit products{% endblock %}
+
+
+{% block content %}
+    <h1>toto je stranka pro adminy na editaci produktu</h1>
+    <form method="POST">
+        {{ new_produkt.csrf_token }}
+        <div class="input-group">
+            {{ new_produkt.name(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ new_produkt.name.label }}</label>
+        </div>
+        <div class="input-group">
+            {{ new_produkt.description(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ new_produkt.description.label }}</label>
+        </div>
+        <div class="input-group">
+            {{ new_produkt.imgs_path(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ new_produkt.imgs_path.label }}</label>
+        </div>
+        <div class="input-group">
+            {{ new_produkt.price_per_month(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ new_produkt.price_per_month.label }}</label>
+        </div>
+        <input class="btn" type="submit">
+        <hr>
+        {% for field, errors in new_produkt.errors.items() %}
+    <div class="alert alert-error">
+        {{ new_produkt[field].label }}: {{ ', '.join(errors) }}
+    </div>
+        {% endfor %}
+    </form>
+    <section>
+        <h2>Producty</h2>
+        <table>
+            <tr>
+                <thead>
+                    <th>Jmeno produktu</th>
+                    <th>Popis Produktu</th>
+                    <th>Měsíčně</th>
+                    <th>Imgs</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </thead>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product['name'] }}</td>
+                    <td>{{ product['description'] }}</td>
+                    <td class="center">{{ product['price'] }}</td>
+                    <td>{{ product['imgs_path'] }}</td>
+                    <td><a class="btn green_btn" href="{{ url_for('edit_product',id=product['name']) }}">edit</a></td>
+                    <td><a class="btn red_btn" href="{{ url_for('delete_product',id=product['name']) }}">delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

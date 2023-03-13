@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+    <p> toto je login stranka</p>
+    <form method="POST">
+        {{ form_login.csrf_token }}
+        <div class="input-group">
+            {{ form_login.login(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ form_login.login.label }}</label>
+        </div>
+        <div class="input-group">
+            {{ form_login.password(class='input', required='required', autocomplete='off') }}
+            <label class="user-label">{{ form_login.password.label }}</label>
+        </div>
+        <input class="btn" type="submit">
+    </form>
+    <hr>
+    {% for field, errors in form_login.errors.items() %}
+    <div class="alert alert-error">
+        {{ form_login[field].label }}: {{ ', '.join(errors) }}
+    </div>
+    {% endfor %}
+{% endblock %}

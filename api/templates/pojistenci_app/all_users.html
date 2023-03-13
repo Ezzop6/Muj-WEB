@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Edit Users{% endblock %}
+
+{% block content %}
+    <h1>toto je stranka pro adminy na editaci uzivatelu</h1>
+    <section>
+        <h2>Uzivatele</h2>
+        <form method="post">
+            {{ sorting_form.csrf_token }}
+            <div class="input-group">
+                {{ sorting_form.search_by (class='input', required='required', autocomplete='off') }}
+            </div>
+            <div class="input-group">
+                {{ sorting_form.search(class='input', required='required', autocomplete='off') }}
+                <label class="user-label">{{ sorting_form.search.label }}</label>
+            </div>
+            <input class="btn" type="submit">
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=login">Login</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=surname">Příjmení</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=name">Jméno</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=birth_date">Datum narození</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=city">Město</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=street">Ulice</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=street_number">Číslo popisné</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=zip_code">PSČ</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=phone_number">Telefon</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=email">email</a></th>
+                    <th><a href="?sort_direction={{ 'asc' if sort_direction == 'desc' else 'desc' }}&sort_by=role">Role</a></th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user['login'] }}</td>
+                    <td>{{ user['surname'] }}</td>
+                    <td>{{ user['name'] }}</td>
+                    <td>{{ user['birth_date'] }}</td>
+                    <td>{{ user['city'] }}</td>
+                    <td>{{ user['street'] }}</td>
+                    <td>{{ user['street_number'] }}</td>
+                    <td>{{ user['zip_code'] }}</td>
+                    <td>{{ user['phone_number'] }}</td>
+                    <td>{{ user['email'] }}</td>
+                    <td>{{ user['role'] }}</td>
+                    <td><a class="btn green_btn" href="{{ url_for('edit_user', id=user['_id'])}}">Edit</a></td>
+                    <td><a class="btn red_btn" href="{{ url_for('delete_user', id=user['_id']) }}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </section>
+
+{% endblock %}

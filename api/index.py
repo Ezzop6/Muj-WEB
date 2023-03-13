@@ -1,22 +1,54 @@
-debug = False #pred načítaním na server nastavit na False nemam paru proc
+debug = True #pred načítaním na server nastavit na False nemam paru proc
 
 if debug:
     from my_packages._tools import *
     from bl_pages.main_pages import main_pages
+    from bl_pages.pojistenci_app_pages import pojistenci_app_pages
+    from bl_pages.smenost_app_pages import smenost_app_pages
+    from database import DbUsersMain
 else:
     from api.my_packages._tools import *
     from api.bl_pages.main_pages import main_pages
+    from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
+    from api.bl_pages.smenost_app_pages import smenost_app_pages
+    from api.database import DbUsersMain
 
+from flask import Flask, render_template, request, redirect, url_for, g, session, abort
+from flask_login import current_user, login_required, LoginManager, UserMixin, login_user, logout_user
 
-from flask import Flask
 import os
+from functools import wraps
 
-main = main_pages
+
 
 app = Flask(__name__)
-app.register_blueprint(main, url_prefix='/')
+app.secret_key = random_secret_key()
+app.config['PERMANENT_SESSION_LIFETIME'] = 60000 # time to logout user
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+app.register_blueprint(main_pages, url_prefix='/')
+app.register_blueprint(pojistenci_app_pages, url_prefix='/pojistenci_app')
+app.register_blueprint(smenost_app_pages, url_prefix='/KalendarSmen_app')
+
+class User(UserMixin):
+    def __init__(self, login):
+        self.id = login
+        # self.role = db_user.get_user_role(login)
+        # self.login = db_user.get_user_login(login)
+        
+@login_manager.user_loader
+def load_user(user_id):
+    '''Callback to reload the user object from the user ID stored in the session'''
+    return User(user_id)
 
 
+@app.before_request
+def before_request():
+    g.user = None
+    if "user" in session:
+        g.user = session["user"]
 
 if __name__ == '__main__':
     if debug:

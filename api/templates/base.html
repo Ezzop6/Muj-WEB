@@ -21,7 +21,7 @@
         </div>
         <div class="navbar">
             <ul>
-                <li><a href="#">
+                <li><a href="{{ url_for( 'main_pages.projekty' ) }}">
                         <div class="buttons">
                             <button class="btn"><span></span>
                                 <p data-start="good luck!" data-text="Na tomhle jsem pracoval" data-title="Projekty"></p>
@@ -36,22 +36,22 @@
                         </button>
                     </div>
                 </a>
-            </li>
-            <li><a href="mailto:ezzop6@gmail.com">
-                <div class="buttons">
-                    <button class="btn"><span></span>
-                        <p data-start="good luck!" data-text="Sorry jen email" data-title="Kontakt"></p>
-                    </button>
-                </div>
-            </a>
-        </li>
+                </li>
+                <li><a href="mailto:ezzop6@gmail.com">
+                    <div class="buttons">
+                        <button class="btn"><span></span>
+                            <p data-start="good luck!" data-text="Sorry jen email" data-title="Kontakt"></p>
+                        </button>
+                    </div>
+                </a>
+                </li>
             </ul>
         </div>
         {% endblock %}
     </header>
 
     <section>
-        {% block section %}
+        {% block content %}
         {% endblock %}
     </section>
 
