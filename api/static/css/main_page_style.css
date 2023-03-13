@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px dashed greenyellow; */
+    font-family: 'Roboto', sans-serif;
+}
+:root{
+    --color-primary-color: #0B489A;
+    --color-secondary-color: #5696C3;
+    --color-button-text-color: #171616;
+    --color-header: #042138;
+    --color-text-logo: #b8c5d0;
+    --color-text: #f6f6f6;
+    --color-produkt-background: #c0d2e0;
+    --color-button-background: #5696C3;
+    --color-background: #b8c5d0;
+    --color-btn-edit: #0e870c;
+    --color-btn-delete: #a30404;
+    --color-shadow: #171616;
+    --table-head: #555;
+    --table-row-hover: #99999979;
+    --table-row-nth-child: #a1b9cd;
+}

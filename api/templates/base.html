@@ -6,12 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hlavni strana">
     <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/normalise.css' ) }}">
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/style.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/main_page_style.css' ) }}">
     <link rel="icon" type="image/png" href="{{ url_for( 'static', filename='../static/img/logo.png' ) }}">
     <title>{% block title %} Base html {% endblock %}</title>
 </head>
 <body>
-main page pripravuje se
+
+    <header>
+        {% block header %}
+        <div>
+            <a href="{{ url_for( 'main_pages.main_page' ) }}">
+                <img src="{{ url_for( 'static', filename='../static/img/logo.png' ) }}" alt="logo">
+            </a>
+        </div>
+        <div>
+            <ul>
+                <li><a href="{{ url_for( 'main_pages.main_page' ) }}">Domů</a></li>
+                <li><a href="{{ url_for( 'main_pages.about' ) }}">O mně</a></li>
+            </ul>
+        </div>
+        {% endblock %}
+    </header>
+
+{% block content %}
+
+{% endblock %}
+
+    <footer>
+        {% block footer %}
+        <div class="footer">
+            <p>© 2023</p>
+        </div>
+        {% endblock %}
+    </footer>
+
 </body>
 </html>
 
