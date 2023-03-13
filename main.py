@@ -1,6 +1,5 @@
 from flask import Flask
 import os
-
 from api._tools import *
 from api.routes import bl_main_pages
 
