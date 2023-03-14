@@ -19,6 +19,7 @@ from flask_login import current_user, login_required, LoginManager, UserMixin, l
 import os
 from functools import wraps
 
+Db = DbUsersMain()
 
 
 app = Flask(__name__)
@@ -33,10 +34,10 @@ app.register_blueprint(pojistenci_app_pages, url_prefix='/pojistenci_app')
 app.register_blueprint(smenost_app_pages, url_prefix='/KalendarSmen_app')
 
 class User(UserMixin):
-    def __init__(self, login):
-        self.id = login
-        # self.role = db_user.get_user_role(login)
-        # self.login = db_user.get_user_login(login)
+    def __init__(self, id):
+        self.id = id
+        self.role = Db.get_user_role(self.id)
+        self.login = Db.get_user_login(self.id)
         
 @login_manager.user_loader
 def load_user(user_id):
@@ -50,10 +51,18 @@ def before_request():
     if "user" in session:
         g.user = session["user"]
 
+if debug:
+    @app.route('/login_test_user')
+    def login_test_user():
+        '''Login test user'''
+        current_user = User("640f7917bf613a7f3479c332")
+        login_user(current_user)
+    
 if __name__ == '__main__':
     if debug:
         app.debug = True
     host = os.getenv('IP', '0.0.0.0')
     port = int(os.getenv('PORT', 3000))
-    app.jinja_env.globals.update(get_random_produkt_img=get_random_produkt_img)
+    app.jinja_env.globals.update(get_random_produkt_img = get_random_produkt_img)
+    app.jinja_env.globals.update(debug = debug)
     app.run(host=host, port=port)
