@@ -1,4 +1,4 @@
-debug = True #pred načítaním na server nastavit na False nemam paru proc
+debug = False #pred načítaním na server nastavit na False nemam paru proc
 
 if debug:
     from my_packages._tools import *
