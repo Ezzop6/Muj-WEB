@@ -4,9 +4,9 @@ import os
 load_dotenv(find_dotenv())
 debug = os.environ.get("DEBUG")
 if debug == "True": debug = True
-user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
 
 if debug:
+    user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
     from my_packages._tools import *
     from bl_pages.main_pages import main_pages
     from bl_pages.pojistenci_app_pages import pojistenci_app_pages
