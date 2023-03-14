@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} login a registrace {% endblock %}
+
+{% block content %}
+<p> toto je login stranka</p>
+<form method="POST">
+    {{ form_register.csrf_token }}
+    <div class="input-group">
+        {{ form_register.login(class='input', required='required', autocomplete='off') }}
+        <label class="user-label">{{ form_register.login.label }}</label>
+    </div>
+    <div class="input-group">
+        {{ form_register.password(class='input', required='required', autocomplete='off') }}
+        <label class="user-label">{{ form_register.password.label }}</label>
+    </div>
+    <div class="input-group">
+        {{ form_register.password2(class='input', required='required', autocomplete='off') }}
+        <label class="user-label">{{ form_register.password2.label }}</label>
+    </div>
+    <input class="btn" type="submit">
+</form>
+
+<form method="POST">
+    {{ form_login.csrf_token }}
+    <div class="input-group">
+        {{ form_login.login(class='input', required='required', autocomplete='off') }}
+        <label class="user-label">{{ form_login.login.label }}</label>
+    </div>
+    <div class="input-group">
+        {{ form_login.password(class='input', required='required', autocomplete='off') }}
+        <label class="user-label">{{ form_login.password.label }}</label>
+    </div>
+    <input class="btn" type="submit">
+</form>
+
+{% endblock %}

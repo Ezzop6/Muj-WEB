@@ -1,4 +1,10 @@
-debug = False #pred načítaním na server nastavit na False nemam paru proc
+# Description: Main file of the app
+from dotenv import load_dotenv, find_dotenv
+import os
+load_dotenv(find_dotenv())
+debug = os.environ.get("DEBUG")
+if debug == "True": debug = True
+user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
 
 if debug:
     from my_packages._tools import *
@@ -50,13 +56,25 @@ def before_request():
     g.user = None
     if "user" in session:
         g.user = session["user"]
+        
+
 
 if debug:
     @app.route('/login_test_user')
     def login_test_user():
         '''Login test user'''
-        current_user = User("640f7917bf613a7f3479c332")
+        if user_for_debuging == "admin":
+            current_user = User("640f7917bf613a7f3479c332")
+        else:
+            current_user = User("string")#TODO doplnit id testovaciho uzivatele
         login_user(current_user)
+        return redirect(url_for('main_pages.main_page'))
+    
+    @app.route('/logout_test_user')
+    def logout_test_user():
+        '''Logout test user'''
+        logout_user()
+        return redirect(url_for('main_pages.main_page'))
     
 if __name__ == '__main__':
     if debug:

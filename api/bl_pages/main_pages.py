@@ -1,5 +1,15 @@
+from dotenv import load_dotenv, find_dotenv
+import os
+load_dotenv(find_dotenv())
+debug = os.environ.get("DEBUG")
+if debug == "True": debug = True
+
 from flask import Blueprint, render_template
 
+if debug:
+    from forms.forms import LoginForm, RegisterForm
+else:
+    from api.forms.forms import LoginForm, RegisterForm
 
 main_pages = Blueprint('main_pages', __name__)
 
@@ -18,3 +28,11 @@ def base():
 @main_pages.route('/projekty')
 def projekty():
     return render_template('projekty.html')
+
+@main_pages.route('/LoginRegister')
+def login_register():
+    form_register = RegisterForm()
+    form_login = LoginForm()
+    return render_template('LoginRegister.html',
+                           form_register=form_register,
+                           form_login=form_login)

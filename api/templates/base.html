@@ -45,11 +45,30 @@
                     </div>
                 </a>
                 </li>
+                <li><a href="{{ url_for( 'main_pages.login_register' ) }}">
+                    <div class="buttons">
+                        <button class="btn"><span></span>
+                            <p data-start="good luck!" data-text="Přihlásit Registrovat" data-title="Login Register"></p>
+                        </button>
+                    </div>
+                </a>
+                </li>
+
             </ul>
-            {% if debug == True %}
-            
+            <div class="debug">
+                {% if debug == True %}
                 <p>Debug mode</p>
+                {% if not current_user.is_authenticated %}
+                    <p><a href="{{ url_for( 'login_test_user' ) }}">Login</a></p>
+                {% endif %}
+                
+                {% if current_user.is_authenticated %}
+                    <p><a href="{{ url_for( 'logout_test_user' ) }}">Logout</a></p>
+                    {{ current_user.id }}
+                {% endif %}
+                <p> {{ current_user.is_authenticated }} </p>
             {% endif %}
+            </div>
         </div>
         {% endblock %}
     </header>

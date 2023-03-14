@@ -15,10 +15,7 @@
     <header>
         {% block header %}
         kalendar smen
-        {{if current_user.is_authenticated}}
-        {{current_user.login}}
-        {{current_user.role}}
-        {{endif}}
+        
         {% endblock %}
     </header>
 
