@@ -4,6 +4,7 @@ import os
 load_dotenv(find_dotenv())
 debug = os.environ.get("DEBUG")
 if debug == "True": debug = True
+else: debug = False
 
 if debug:
     user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
