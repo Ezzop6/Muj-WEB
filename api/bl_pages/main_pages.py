@@ -42,25 +42,23 @@ def projekty():
 @main_pages.route('/Login', methods=['GET', 'POST'])
 def login():
     form_login = LoginForm()
-    if request.method == 'POST':
-        if form_login.validate_on_submit():
-            if db.login_user(form_login.login.data, form_login.password.data):
-                user_id = db.get_user_id(form_login.login.data)
-                current_user = User(user_id)
-                login_user(current_user)
-                return render_template('index.html')
+    if form_login.validate_on_submit():
+        if db.login_user(form_login.login.data, form_login.password.data):
+            user_id = db.get_user_id(form_login.login.data)
+            current_user = User(user_id)
+            login_user(current_user)
+            return render_template('index.html')
     return render_template('Login.html', form_login=form_login)
 
 @main_pages.route('/Register', methods=['GET', 'POST'])
 def register():
     form_register = RegisterForm()
-    if request.method == 'POST' and 'Register' in request.form:
-        if form_register.validate_on_submit():
-            if db.create_user(form_register.login.data, form_register.password.data):
-                user_id = db.get_user_id(form_register.login.data)
-                current_user = User(user_id)
-                login_user(current_user)
-                return render_template('index.html')
+    if form_register.validate_on_submit():
+        if db.create_user(form_register.login.data, form_register.password.data):
+            user_id = db.get_user_id(form_register.login.data)
+            current_user = User(user_id)
+            login_user(current_user)
+            return render_template('index.html')
     return render_template('Register.html', form_register=form_register)
 
 @main_pages.route('/logout')
