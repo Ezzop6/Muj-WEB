@@ -42,7 +42,7 @@ def projekty():
 @main_pages.route('/Login', methods=['GET', 'POST'])
 def login():
     form_login = LoginForm()
-    if request.method == 'POST' and 'Login' in request.form:
+    if request.method == 'POST':
         if form_login.validate_on_submit():
             if db.login_user(form_login.login.data, form_login.password.data):
                 user_id = db.get_user_id(form_login.login.data)

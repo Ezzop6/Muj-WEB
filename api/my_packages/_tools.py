@@ -19,7 +19,7 @@ from flask import abort
 from flask_login import current_user, LoginManager, UserMixin, login_user, logout_user
 
 db = DbUsersMain()
-login_manager = LoginManager()
+
 def cprint(text, color="light_green"):
     print(colored(text, color))
     
@@ -54,10 +54,6 @@ class User(UserMixin):
         self.login = db.get_user_login(self.id)
         
 
-@login_manager.user_loader
-def load_user(user_id):
-    '''Callback to reload the user object from the user ID stored in the session'''
-    return User(user_id)
 
 
 

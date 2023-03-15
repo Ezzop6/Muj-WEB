@@ -30,14 +30,15 @@ from flask_wtf.csrf import CSRFProtect
 import os
 
 db = DbUsersMain()
+login_manager = LoginManager()
 
 
 app = Flask(__name__)
-csrf = CSRFProtect(app)
 app.config['SECRET_KEY'] = random_secret_key()
+csrf = CSRFProtect(app)
+
 app.config['PERMANENT_SESSION_LIFETIME'] = 3600 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
-
 login_manager.init_app(app)
 
 
@@ -51,6 +52,11 @@ def before_request():
     if "user" in session:
         g.user = session["user"]
         
+@login_manager.user_loader
+def load_user(user_id):
+    '''Callback to reload the user object from the user ID stored in the session'''
+    return User(user_id)
+
         
 '''error pages'''
 @app.errorhandler(401)
