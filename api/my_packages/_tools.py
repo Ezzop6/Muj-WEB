@@ -1,13 +1,64 @@
+from dotenv import load_dotenv, find_dotenv
+import os
+load_dotenv(find_dotenv())
+debug = os.environ.get("DEBUG")
+if debug == "True": debug = True
+else: debug = False
+
+if debug:
+    from database import DbUsersMain
+else:
+    from api.database import DbUsersMain
+    
 from termcolor import colored
 from os import listdir
 from random import choice, shuffle
+from functools import wraps
 
+from flask import abort
+from flask_login import current_user, LoginManager, UserMixin, login_user, logout_user
+
+db = DbUsersMain()
+login_manager = LoginManager()
 def cprint(text, color="light_green"):
     print(colored(text, color))
     
 def random_secret_key():
     randon_secret_string = PasswordGenerator(10,10,10).generate_password()
     return randon_secret_string
+
+
+def role_required(role):
+    '''Vyžaduje přihlášení s určeným právem'''
+    def dekorator(funkce):
+        @wraps(funkce)
+        def dekorovana_funkce(*args, **kwargs):
+            if not current_user.is_authenticated:
+                # uživatel není přihlášen
+                abort(403)
+            if current_user.role == "admin":
+                # uživatel je admin
+                return funkce(*args, **kwargs)
+            if current_user.role != role:
+                # uživatel nemá požadované právo
+                abort(403)
+            # uživatel má požadované právo, můžeme pokračovatd
+            return funkce(*args, **kwargs)
+        return dekorovana_funkce
+    return dekorator
+
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
+        self.role = db.get_user_role(self.id)
+        self.login = db.get_user_login(self.id)
+        
+
+@login_manager.user_loader
+def load_user(user_id):
+    '''Callback to reload the user object from the user ID stored in the session'''
+    return User(user_id)
+
 
 
 def get_random_produkt_img(img_path):

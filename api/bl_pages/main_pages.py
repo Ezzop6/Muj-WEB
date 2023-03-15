@@ -5,14 +5,23 @@ debug = os.environ.get("DEBUG")
 if debug == "True": debug = True
 else: debug = False
 
-from flask import Blueprint, render_template
-
 if debug:
     from forms.forms import LoginForm, RegisterForm
+    from my_packages._tools import *
+    from database import DbUsersMain
 else:
     from api.forms.forms import LoginForm, RegisterForm
+    from api.my_packages._tools import *
+    from api.database import DbUsersMain
+
+
+from flask import Blueprint, render_template, request
+from flask_login import login_required, logout_user, current_user, login_user, LoginManager, UserMixin
+
+db = DbUsersMain()
 
 main_pages = Blueprint('main_pages', __name__)
+
 
 @main_pages.route('/')
 def main_page():
@@ -30,10 +39,31 @@ def base():
 def projekty():
     return render_template('projekty.html')
 
-@main_pages.route('/LoginRegister')
-def login_register():
-    form_register = RegisterForm()
+@main_pages.route('/Login', methods=['GET', 'POST'])
+def login():
     form_login = LoginForm()
-    return render_template('LoginRegister.html',
-                           form_register=form_register,
-                           form_login=form_login)
+    if request.method == 'POST' and 'Login' in request.form:
+        if form_login.validate_on_submit():
+            if db.login_user(form_login.login.data, form_login.password.data):
+                user_id = db.get_user_id(form_login.login.data)
+                current_user = User(user_id)
+                login_user(current_user)
+                return render_template('index.html')
+    return render_template('Login.html', form_login=form_login)
+
+@main_pages.route('/Register', methods=['GET', 'POST'])
+def register():
+    form_register = RegisterForm()
+    if request.method == 'POST' and 'Register' in request.form:
+        if form_register.validate_on_submit():
+            if db.create_user(form_register.login.data, form_register.password.data):
+                user_id = db.get_user_id(form_register.login.data)
+                current_user = User(user_id)
+                login_user(current_user)
+                return render_template('index.html')
+    return render_template('Register.html', form_register=form_register)
+
+@main_pages.route('/logout')
+def logout():
+    logout_user()
+    return render_template('index.html')

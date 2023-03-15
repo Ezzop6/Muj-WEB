@@ -1,3 +1,20 @@
+from dotenv import load_dotenv, find_dotenv
+import os
+load_dotenv(find_dotenv())
+debug = os.environ.get("DEBUG")
+if debug == "True": debug = True
+else: debug = False
+
+if debug:
+    from database import DbUsersMain
+else:
+    from api.database import DbUsersMain
+    
+db = DbUsersMain()
+
+
+
+
 from flask_wtf import FlaskForm
 from wtforms import  TextAreaField, IntegerField, SelectField ,widgets, StringField, PasswordField, SubmitField, DateField, validators,ValidationError
 
@@ -119,8 +136,30 @@ class LoginForm(FlaskForm):
     password = PasswordField('Heslo', [validators.Length(min=8, max=25), validators.DataRequired()])
     submit = SubmitField('Přihlásit se')
     
+    def validate_login(self, login):
+        login = login.data
+        if not db.check_if_user_exists(login) == None:
+            raise ValidationError(f"Login: {login} neexistuje")
+        
+    def validate_password(self, password):
+        login = self.login.data
+        password = password.data
+        if not db.login_user(login, password):
+            raise ValidationError("Špatné jméno nebo heslo")
+    
 class RegisterForm(FlaskForm):
     login = StringField('Login', [validators.Length(min=4, max=25), validators.DataRequired()])
     password = PasswordField('Heslo', [validators.Length(min=8, max=25), validators.DataRequired()])
     password2 = PasswordField('Heslo znovu', [validators.Length(min=8, max=25), validators.DataRequired()])
     submit = SubmitField('Registrovat se')
+    
+    
+    def validate_login(self, login):
+        login = login.data
+        if login in forbidden_words:
+            raise ValidationError(f"nesmíš použít tento login: {login}")
+        if db.check_if_user_exists(login) == None:
+            raise ValidationError(f"Uživatel s loginem {login} již existuje")
+    
+    def validate_password(self, password):
+        CustomTest.validate_password(password, self.password2.data)

@@ -45,16 +45,38 @@
                     </div>
                 </a>
                 </li>
-                <li><a href="{{ url_for( 'main_pages.login_register' ) }}">
+            {% if not current_user.is_authenticated %}
+                <li><a href="{{ url_for( 'main_pages.register' ) }}">
                     <div class="buttons">
                         <button class="btn"><span></span>
-                            <p data-start="good luck!" data-text="Přihlásit Registrovat" data-title="Login Register"></p>
+                            <p data-start="good luck!" data-text="Tady se mužete zaregistrovat" data-title="Registrovat"></p>
                         </button>
                     </div>
                 </a>
                 </li>
+                <li><a href="{{ url_for( 'main_pages.login' ) }}">
+                    <div class="buttons">
+                        <button class="btn"><span></span>
+                            <p data-start="good luck!" data-text="Snad si pomatujete heslo" data-title="Přihlásit"></p>
+                        </button>
+                    </div>
+                </a>
+                </li>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for( 'main_pages.logout' ) }}">
+                <div class="buttons">
+                    <button class="btn"><span></span>
+                        <p data-start="good luck!" data-text="Z5 do reality" data-title="Odhlásit"></p>
+                    </button>
+                </div>
+            </a>
+            </li>
 
+            {% endif %}
             </ul>
+            
+
             <div class="debug">
                 {% if debug == True %}
                 <p>Debug mode</p>
@@ -66,7 +88,7 @@
                     <p><a href="{{ url_for( 'logout_test_user' ) }}">Logout</a></p>
                     {{ current_user.id }}
                 {% endif %}
-                <p> {{ current_user.is_authenticated }} </p>
+                <p>prihlasen {{ current_user.is_authenticated }} </p>
             {% endif %}
             </div>
         </div>
