@@ -5,7 +5,6 @@
 {% block content %}
 
 <form method="POST">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="input-group">
         {{ form_login.login(class='input', required='required', autocomplete='off') }}
         <label class="user-label">{{ form_login.login.label }}</label>
@@ -18,6 +17,8 @@
         <span class="actual-text">&nbsp;Přihlásit&nbsp;</span>
         <span class="hover-text" aria-hidden="true">&nbsp;Přihlásit&nbsp;</span>
     </button>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
 </form>
 
 {% for field, errors in form_login.errors.items() %}
