@@ -25,6 +25,7 @@ else:
 
 from flask import Flask, render_template, request, redirect, url_for, g, session, abort
 from flask_login import current_user, login_required, LoginManager, UserMixin, login_user, logout_user
+
 from flask_wtf.csrf import CSRFProtect
 import os
 
@@ -33,7 +34,7 @@ db = DbUsersMain()
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-app.secret_key = random_secret_key()
+app.config['SECRET_KEY'] = random_secret_key()
 app.config['PERMANENT_SESSION_LIFETIME'] = 3600 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
 

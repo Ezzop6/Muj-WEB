@@ -18,6 +18,8 @@ db = DbUsersMain()
 from flask_wtf import FlaskForm
 from wtforms import  TextAreaField, IntegerField, SelectField ,widgets, StringField, PasswordField, SubmitField, DateField, validators,ValidationError
 
+
+
 import datetime
 
 forbidden_words = ["admin","root","administrator"] # forbidden words in name, surname and login
