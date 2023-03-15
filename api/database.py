@@ -47,15 +47,11 @@ class DbUsersMain(DbConnection):
             encripted_password = self.get_user_password(user_id)
             decripted_password = self.decript_data(encripted_password, user_key)
             if user_password == decripted_password:
-                self.update_user_last_login(user_id)
-                
-                print("login ok")
+                self.update_user_last_login(user_id)  
                 return True
             else:
-                print("login not ok")
                 return False
         else:
-            print("user does not exist")
             return False
     
     def check_if_user_exists(self, user_login):
