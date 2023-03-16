@@ -23,7 +23,7 @@ else:
     from api.database import DbUsersMain
 
 
-from flask import Flask, render_template, request, redirect, url_for, g, session, abort
+from flask import Flask, render_template, request, redirect, url_for, g, session
 from flask_login import current_user, login_required, LoginManager, UserMixin, login_user, logout_user
 
 from flask_wtf.csrf import CSRFProtect

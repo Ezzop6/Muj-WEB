@@ -15,7 +15,7 @@ else:
     from api.database import DbUsersMain
 
 
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, make_response
 from flask_login import login_required, logout_user, current_user, login_user, LoginManager, UserMixin
 
 db = DbUsersMain()
@@ -47,8 +47,13 @@ def login():
             user_id = db.get_user_id(form_login.login.data)
             current_user = User(user_id)
             login_user(current_user)
-            return render_template('index.html')
+            
+            # Nastavení SameSite atributu cookie
+            resp = make_response(render_template('index.html'))
+            resp.set_cookie('my_cookie', value='my_value', samesite='Lax')
+            return resp
     return render_template('Login.html', form_login=form_login)
+
 
 @main_pages.route('/Register', methods=['GET', 'POST'])
 def register():
@@ -58,7 +63,11 @@ def register():
             user_id = db.get_user_id(form_register.login.data)
             current_user = User(user_id)
             login_user(current_user)
-            return render_template('index.html')
+            
+            # Nastavení SameSite atributu cookie
+            resp = make_response(render_template('index.html'))
+            resp.set_cookie('my_cookie', value='my_value', samesite='Lax')
+            return resp
     return render_template('Register.html', form_register=form_register)
 
 @main_pages.route('/logout')
