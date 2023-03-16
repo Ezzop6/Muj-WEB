@@ -37,7 +37,8 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = random_secret_key()
 csrf = CSRFProtect(app)
 
-app.config['PERMANENT_SESSION_LIFETIME'] = 3600 # time to logout user
+
+app.config['PERMANENT_SESSION_LIFETIME'] = 7200 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
 login_manager.init_app(app)
 
