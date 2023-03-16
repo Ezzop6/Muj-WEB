@@ -89,7 +89,7 @@ if debug:
     @app.route('/login_test_user')
     def login_test_user():
         '''Login test user'''
-        current_user = User("6411e442735e17571d1edc4a")
+        current_user = User("6411f76b45aae9e67c066141")
         login_user(current_user)
         return redirect(url_for('main_pages.main_page'))
     
@@ -119,5 +119,7 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     app.jinja_env.globals.update(get_random_produkt_img = get_random_produkt_img)
     app.jinja_env.globals.update(debug = debug)
+    app.jinja_env.globals.update(app = app)
+    
 
     app.run(host=host, port=port)

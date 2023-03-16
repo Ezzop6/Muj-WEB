@@ -15,6 +15,10 @@
     <header>
         {% block header %}
         <div>
+            <p> {{ current_user.is_authenticated }} </p>
+            <br>
+            <p> {{ current_user }} </p>
+            <br>
             <p> {{ current_user.id }} </p>
             <br>
             <p> {{ session }} </p>
@@ -23,6 +27,9 @@
             <br>
             <p> {{ csrf_token }} </p>
             <br>
+            {% for klic, hodnota in app.__dict__.items() %}
+            <p>{{ klic }}: {{ hodnota }}</p>
+            {% endfor %}
 
             
 
@@ -118,7 +125,7 @@
     <footer>
         {% block footer %}
         <div class="footer">
-            <p>© 2023</p>
+            <p></p>
         </div>
         {% endblock %}
     </footer>
