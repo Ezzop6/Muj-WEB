@@ -44,6 +44,7 @@ csrf = CSRFProtect(app)
 
 app.config['PERMANENT_SESSION_LIFETIME'] = 7200 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
+app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_REDIS'] = redis_client
 app.config['SESSION_USE_SIGNER'] = True
 app.config['SECRET_KEY'] = random_secret_key()
@@ -97,6 +98,17 @@ def logout_test_user():
     '''Logout test user'''
     logout_user()
     return redirect(url_for('main_pages.main_page'))
+
+
+
+
+class User(UserMixin):
+    def __init__(self, id):
+        self.id = id
+        self.role = db.get_user_role(self.id)
+        self.login = db.get_user_login(self.id)
+        
+
 
 
 if __name__ == '__main__':

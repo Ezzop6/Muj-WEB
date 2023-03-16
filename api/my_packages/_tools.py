@@ -47,13 +47,13 @@ def role_required(role):
         return dekorovana_funkce
     return dekorator
 
+
 class User(UserMixin):
     def __init__(self, id):
         self.id = id
         self.role = db.get_user_role(self.id)
         self.login = db.get_user_login(self.id)
         
-
 
 
 
