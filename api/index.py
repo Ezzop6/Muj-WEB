@@ -14,6 +14,8 @@ if debug:
     from bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from bl_pages.smenost_app_pages import smenost_app_pages
     from database import DbUsersMain
+    server_name = "localhost"
+    
 else:
     from api.my_packages._tools import *
     from api.my_packages.vtipky import error_page_joke
@@ -21,6 +23,8 @@ else:
     from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from api.bl_pages.smenost_app_pages import smenost_app_pages
     from api.database import DbUsersMain
+    server_name = request.environ.get('SERVER_NAME')
+    
 
 
 from flask import Flask, render_template, request, redirect, url_for, g, session
@@ -31,6 +35,9 @@ import os
 
 db = DbUsersMain()
 login_manager = LoginManager()
+
+vercel_instance_id = os.environ.get('VERCEL_INSTANCE_ID')
+now_region = os.environ.get('NOW_REGION')
 
 
 app = Flask(__name__)
@@ -97,4 +104,8 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     app.jinja_env.globals.update(get_random_produkt_img = get_random_produkt_img)
     app.jinja_env.globals.update(debug = debug)
+    app.jinja_env.globals.update(vercel_instance_id = vercel_instance_id)
+    app.jinja_env.globals.update(now_region = now_region)
+    app.jinja_env.globals.update(server_name = server_name)
+    
     app.run(host=host, port=port)
