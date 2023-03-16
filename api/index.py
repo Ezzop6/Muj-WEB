@@ -23,8 +23,8 @@ else:
     
 
 from flask_session import Session
-from flask import Flask, render_template, request, redirect, url_for, g, session
-from flask_login import current_user, login_required, LoginManager, UserMixin, login_user, logout_user
+from flask import Flask, render_template, redirect, url_for, g, session
+from flask_login import current_user, LoginManager, UserMixin, login_user, logout_user
 from flask_wtf.csrf import CSRFProtect
 from redis import Redis
 import os

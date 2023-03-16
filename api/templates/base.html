@@ -14,7 +14,19 @@
 
     <header>
         {% block header %}
+        <div>
+            <p> {{ current_user.id }} </p>
+            <br>
+            <p> {{ session }} </p>
+            <br>
+            <p> {{ g.user  }} </p>
+            <br>
+            <p> {{ csrf_token }} </p>
+            <br>
 
+            
+
+        </div>
         <div>
             <a href="{{ url_for( 'main_pages.main_page' ) }}">
                 <img src="#" alt="logo">
