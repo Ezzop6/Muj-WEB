@@ -34,11 +34,9 @@ login_manager = LoginManager()
 
 # nastaveni redisu
 redis_password = os.environ.get("REDIS_PWD")
-redis_client = Redis(
-    host='redis-17054.c256.us-east-1-2.ec2.cloud.redislabs.com',
-    port=17054,
-    password=redis_password
-)
+redis_host = os.environ.get("REDIS_HOST")
+redis_port = os.environ.get("REDIS_PORT")
+redis_client = Redis( host = redis_host, port = redis_port, password = redis_password )
 
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'redis'
