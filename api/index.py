@@ -2,9 +2,7 @@
 from dotenv import load_dotenv, find_dotenv
 import os
 load_dotenv(find_dotenv())
-debug = os.environ.get("DEBUG")
-if debug == "True": debug = True
-else: debug = False
+debug = os.environ.get("DEBUG") == "True"
 
 if debug:
     user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
@@ -14,7 +12,6 @@ if debug:
     from bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from bl_pages.smenost_app_pages import smenost_app_pages
     from database import DbUsersMain
-    server_name = "localhost"
     
 else:
     from api.my_packages._tools import *
@@ -23,30 +20,38 @@ else:
     from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from api.bl_pages.smenost_app_pages import smenost_app_pages
     from api.database import DbUsersMain
-    server_name = request.environ.get('SERVER_NAME')
     
 
-
+from flask_session import Session
 from flask import Flask, render_template, request, redirect, url_for, g, session
 from flask_login import current_user, login_required, LoginManager, UserMixin, login_user, logout_user
-
 from flask_wtf.csrf import CSRFProtect
+from redis import Redis
 import os
 
 db = DbUsersMain()
 login_manager = LoginManager()
 
-vercel_instance_id = os.environ.get('VERCEL_INSTANCE_ID')
-now_region = os.environ.get('NOW_REGION')
-
+# nastaveni redisu
+redis_password = os.environ.get("REDIS_PWD")
+redis_client = Redis(
+    host='redis-17054.c256.us-east-1-2.ec2.cloud.redislabs.com',
+    port=17054,
+    password=redis_password
+)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = random_secret_key()
+app.config['SESSION_TYPE'] = 'redis'
 csrf = CSRFProtect(app)
-
 
 app.config['PERMANENT_SESSION_LIFETIME'] = 7200 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
+app.config['SESSION_REDIS'] = redis_client
+app.config['SESSION_USE_SIGNER'] = True
+app.config['SECRET_KEY'] = random_secret_key()
+
+Session(app)
+
 login_manager.init_app(app)
 
 
@@ -104,8 +109,5 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     app.jinja_env.globals.update(get_random_produkt_img = get_random_produkt_img)
     app.jinja_env.globals.update(debug = debug)
-    app.jinja_env.globals.update(vercel_instance_id = vercel_instance_id)
-    app.jinja_env.globals.update(now_region = now_region)
-    app.jinja_env.globals.update(server_name = server_name)
-    
+
     app.run(host=host, port=port)
