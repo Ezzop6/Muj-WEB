@@ -47,7 +47,7 @@ app.config['WTF_CSRF_TIME_LIMIT'] = 3600
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_REDIS'] = redis_client
 app.config['SESSION_USE_SIGNER'] = True
-app.config['SECRET_KEY'] = random_secret_key()
+app.config['SECRET_KEY'] = os.environ.get("APP_SECRET_KEY")
 
 Session(app)
 
