@@ -5,7 +5,6 @@ load_dotenv(find_dotenv())
 debug = os.environ.get("DEBUG") == "True"
 
 if debug:
-    user_for_debuging = os.environ.get("USER_FOR_DEBUGING")
     from my_packages._tools import *
     from my_packages.vtipky import error_page_joke
     from bl_pages.main_pages import main_pages
@@ -78,11 +77,11 @@ def access_denied(error):
     error_code = str(error.code)
     message = error_page_joke(error_code)
     if error_code == '401':
-        return render_template('401.html', error=error, message=message)
+        return render_template('401.html', error = error, message = message)
     elif error_code == '403':
-        return render_template('403.html', error=error, message=message)
+        return render_template('403.html', error = error, message = message)
     elif error_code == '404':
-        return render_template('404.html', error=error, message=message)
+        return render_template('404.html', error = error, message = message)
     
 # for debuging
 if debug:
