@@ -14,17 +14,6 @@
 
     <header>
         {% block header %}
-        <div>
-            <p> {{ current_user.is_authenticated }} </p>
-            <br>
-            <p> {{ current_user }} </p>
-            <br>
-            <p> {{ current_user.id }} </p>
-            <br>
-            <p> {{ session }} </p>
-            <br>
-            <p> {{ g.user  }} </p>
-
         </div>
         <div>
             <a href="{{ url_for( 'main_pages.main_page' ) }}">
