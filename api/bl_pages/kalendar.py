@@ -49,4 +49,5 @@ def main_page():
     
 @kalendar.route('/<int:year>/<int:month>/<int:day>', methods=['GET', 'POST'])
 def day_page(year, month, day):
-    return render_template('kalendar/day.html', year=year, month=month, day=day)
+    today = date(year, month, day)
+    return render_template('kalendar/day.html', year=year, month=month, day=day, today=today)
