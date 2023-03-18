@@ -1,0 +1,111 @@
+aside {
+    background-color: #0B2A3F;
+    width: 35%;
+}
+.controls {
+    display: flex;
+}
+
+.controls button{
+    background-color: #f5f8fa;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    margin-left: 0.5rem;
+    border: 0.1rem solid #000000c4;
+}
+.controls .close {
+    background-color: red;
+}
+
+.controls .minimize {
+    background-color: yellow;
+}
+
+.controls .maximize {
+    background-color: green;
+}
+
+
+.controls .close:hover,
+.controls .close:active {
+    opacity: 50%;
+
+}
+
+.controls .minimize:hover,
+.controls .minimize:active {
+    opacity: 50%;
+
+}
+
+.controls .maximize:hover,
+.controls .maximize:active {
+    opacity: 50%;
+}
+
+/* formular */
+
+input {
+    color: #ffffff;
+    margin-top: 0.5rem;
+    width: 100%;
+    border-radius: 0.2rem;
+    padding: 0.3rem;
+    background: #f5f8fa54;
+}
+
+input::placeholder {
+    color: white;
+    font-weight: normal;
+}
+
+/* navigace */
+
+nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    text-align: center;
+    
+    
+
+}
+
+nav a {
+    font-weight: bold;
+    color: wheat;
+    background-color: #f5f8fa37;
+    border-radius: 0.2rem;
+    padding: 0.4rem;
+    text-shadow: #f5f8fa;
+}
+
+nav a:hover,
+nav a:active {
+    text-shadow: 0.0rem -0.0rem 1rem#ffffff;
+    box-shadow:inset 0.0rem -0.0rem 0.5rem#ffffff;
+    transition: background-color 1s,text-shadow 1s,box-shadow 1s;
+    color: white;
+}
+
+nav .dnes:hover,
+nav .dnes:active {
+    background-color: #00ff2f;
+}
+nav .all:hover,
+nav .all:active {
+    background-color: #ff0000;
+
+}
+nav .scheduled:hover,
+nav .scheduled:active {
+    background-color: #fbff00;
+
+}
+nav .flaged:hover,
+nav .flaged:active {
+    background-color: #1a00c5;
+
+}

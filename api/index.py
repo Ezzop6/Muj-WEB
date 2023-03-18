@@ -1,6 +1,6 @@
-# tomusi byt vsude kde se neco importuje
 from dotenv import load_dotenv, find_dotenv
 import os
+
 load_dotenv(find_dotenv())
 debug = os.environ.get("DEBUG") == "True"
 
@@ -9,7 +9,7 @@ if debug:
     from my_packages.vtipky import error_page_joke
     from bl_pages.main_pages import main_pages
     from bl_pages.pojistenci_app_pages import pojistenci_app_pages
-    from bl_pages.smenost_app_pages import smenost_app_pages
+    from bl_pages.kalendar import kalendar
     from database import DbUsersMain
     
 else:
@@ -17,7 +17,7 @@ else:
     from api.my_packages.vtipky import error_page_joke
     from api.bl_pages.main_pages import main_pages
     from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
-    from api.bl_pages.smenost_app_pages import smenost_app_pages
+    from api.bl_pages.kalendar import kalendar
     from api.database import DbUsersMain
     
 
@@ -55,7 +55,7 @@ login_manager.init_app(app)
 
 app.register_blueprint(main_pages, url_prefix='/')
 app.register_blueprint(pojistenci_app_pages, url_prefix='/pojistenci_app')
-app.register_blueprint(smenost_app_pages, url_prefix='/KalendarSmen_app')
+app.register_blueprint(kalendar, url_prefix='/kalendar')
 
 @app.before_request
 def before_request():

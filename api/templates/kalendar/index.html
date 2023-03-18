@@ -1,0 +1,35 @@
+{% extends 'kalendar/base.html'%}
+    
+{% block title %} Kalendář směn {% endblock %}
+    
+{% block content %}
+<h1>{{ current_calendar[0] }} - {{ current_calendar[1] }}</h1>
+<br>
+<form method="POST">
+    {{ form.csrf_token() }}
+    <p>rok<p/>
+    {{ form.year }}
+    <p>měsíc<p/>
+    {{ form.month }}
+    {{ form.submit }}
+</form>
+
+<table>
+    <tr>
+        <th>Po</th>
+        <th>Út</th>
+        <th>St</th>
+        <th>Čt</th>
+        <th>Pá</th>
+        <th>So</th>
+        <th>Ne</th>
+    </tr>
+    {% for week in month_days %}
+        <tr>
+            {% for day in week %}
+                <td><a href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

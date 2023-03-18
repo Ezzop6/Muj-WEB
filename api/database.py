@@ -23,6 +23,7 @@ class DbUsersMain(DbConnection):
         self.user_db = self.client.main.users
         self.user_key = self.client.main.keys
         
+        
     def create_user(self, user_login, user_password):
         '''Creates user in database if user does not exist'''
         if self.check_if_user_exists(user_login):
@@ -59,9 +60,6 @@ class DbUsersMain(DbConnection):
         if self.user_db.count_documents({"login":user_login}) == 0:
             return True
     
-    
-
-
     def current_time(self):
         '''Returns current time'''
         current_time = datetime.datetime.now()
@@ -84,7 +82,6 @@ class DbUsersMain(DbConnection):
         fernet = Fernet(key)
         decripted_data = fernet.decrypt(data_to_decript).decode()
         return decripted_data
-    
     
     # functions for getting data from database
     def get_user_id(self, user_login):
@@ -113,5 +110,12 @@ class DbUsersMain(DbConnection):
         last_login = self.current_time()
         self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"last_login":last_login}})
     
-
-
+class DbKalendar(DbUsersMain):
+    def __init__(self):
+        super().__init__()
+        self.shift = self.client.main.shift_calendar
+        
+    def create_user_kalendar(self, user_id):
+        '''Creates user kalendar in database'''
+        self.shift.insert_one({"_id":ObjectId(user_id)})
+        

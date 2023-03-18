@@ -1,0 +1,38 @@
+html {
+    font-size: 100%;
+}
+
+
+body {
+    background: #0B2A3F;
+    background: -moz-linear-gradient(45deg, #0B2A3F 0%, #196191 45%, #144E75 100%);
+    background: -webkit-linear-gradient(45deg, #0B2A3F 0%, #196191 45%, #144E75 100%);
+    background: linear-gradient(45deg, #0B2A3F 0%, #196191 45%, #144E75 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    
+    background: #144E75;
+    min-width: 20rem;
+    max-width: 70rem;
+    width: 50%;
+    min-height: 50rem;
+    border: 0.1rem solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    color: aliceblue;
+    display: flex;
+    overflow: hidden;
+}
+
+
+
+aside, main {
+    padding: 1rem;
+}
+aside {
+    min-width: 11rem
+}

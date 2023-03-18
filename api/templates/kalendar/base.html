@@ -14,7 +14,6 @@
 
     <header>
         {% block header %}
-        kalendar smen
             {% if current_user.is_authenticated %}
                         <p><a href="{{ url_for( 'logout_test_user' ) }}">Logout</a></p>
                         {{ current_user.id }}

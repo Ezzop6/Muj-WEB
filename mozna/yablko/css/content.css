@@ -1,0 +1,83 @@
+main {
+    width: 65%;
+
+}
+
+.add_button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add_button button{
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    padding: 0.3rem 0.2rem 0.5rem 0.1em;
+ 
+    
+}
+
+.add_button button:hover,
+.add_button button:active {
+    overflow: hidden;
+    border-radius: 2rem;
+    background: #0b2a3f57;
+    
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: capitalize;
+    display: none;
+}
+
+h1.dnes {
+    display: block;
+    color: var(--color-hezka);
+}
+h1.scheduled {
+    color: #ff0000;
+
+}
+h1.all {
+    color: #fbff00c3;
+}
+h1.flaged {
+    color: #1a00c5;
+
+}
+
+
+/* todos */
+
+.todos li {
+    display: flex;
+    line-height: 1.5;
+}
+
+
+.todos p{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.199);
+    margin: 0.5rem 0rem;
+    text-transform: capitalize;
+    flex-grow: 1;
+}
+
+.todos svg {
+    flex: none;
+    width: 2rem;
+    height: 2rem;
+    stroke: rgba(255, 255, 255, 0.233);
+    stroke-width: 1px;
+    fill: #2d2b39;
+}
+.todos svg:hover,
+.todos svg:active {
+    stroke-width: 2px;
+    fill: #605d6d;
+    cursor: pointer;
+
+    border-radius: 0px;
+}
