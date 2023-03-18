@@ -3,33 +3,47 @@
 {% block title %} Kalendář směn {% endblock %}
     
 {% block content %}
-<h1>{{ current_calendar[0] }} - {{ current_calendar[1] }}</h1>
-<br>
-<form method="POST">
-    {{ form.csrf_token() }}
-    <p>rok<p/>
-    {{ form.year }}
-    <p>měsíc<p/>
-    {{ form.month }}
-    {{ form.submit }}
-</form>
+<section class="kalendar">
+    <div class="navigace_kalendare">
+        <h2>{{ current_calendar[0] }}.{{ current_calendar[1] }}</h2> 
+    <form method="POST">
+        <div class="cal_navigation">
+            {{ form.csrf_token() }}
+            <div>
+                {{ form.year(class='selectfield') }}
+            </div>
+            <div>
+                {{ form.month(class='selectfield') }}
+            </div>
+            <div >  
+                <button class="button" type="submit">
+                    <span class="actual-text">&nbsp;Jdi&nbspna&nbsp;</span>
+                    <span class="hover-text" aria-hidden="true">&nbsp;Jdi&nbspna&nbsp;</span>
+                </button>
+            </div>
+    
+        </div>
+    </form>
+    </div>
 
-<table>
-    <tr>
-        <th>Po</th>
-        <th>Út</th>
-        <th>St</th>
-        <th>Čt</th>
-        <th>Pá</th>
-        <th>So</th>
-        <th>Ne</th>
-    </tr>
-    {% for week in month_days %}
+    <table class="calendar_tab">
         <tr>
-            {% for day in week %}
-                <td><a href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
-            {% endfor %}
+            <th>Po</th>
+            <th>Út</th>
+            <th>St</th>
+            <th>Čt</th>
+            <th>Pá</th>
+            <th>So</th>
+            <th>Ne</th>
         </tr>
-    {% endfor %}
-</table>
+        {% for week in month_days %}
+            <tr>
+                {% for day in week %}
+                    <td><a class="day" href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+    </table>
+</section>
+
 {% endblock %}

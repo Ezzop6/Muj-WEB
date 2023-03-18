@@ -3,22 +3,27 @@
     padding: 0;
     box-sizing: border-box;
     /* outline: 1px dashed greenyellow; */
-    color: aliceblue;
 
 }
 
 :root{
-    --color-background: #020c14;
-    --color-button-background: #1a2022;
-    --color-button-text: #05093f;
-    --color-button-hover: #22ec87;
+    --color-background: #000000;
+    --color-button-background: #2b3133;
+    --color-button-hover: #17e47d;
     --color-form-background: #5c60617e;
+    --color-text: #c7d1ce;
+    --color-button-text: #c7d1ce;
+    --color-shadow: #000000;
+    --radius-border: 3px;
 }
+
+
 /* zakladni rozvrzeni */
 body {
     background-color: var(--color-background);
     position: relative;
     min-height: 100vh;
+    color: var(--color-text);
 }
 
 header {
@@ -78,7 +83,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
+    border-radius: var(--radius-border);
 }
 
 .buttons button:before, .buttons button:after {
@@ -185,7 +190,6 @@ footer {
 
 .buttons button.start {
     background-color: var(--color-button-hover);
-    box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease;
 }
 
@@ -205,9 +209,7 @@ footer {
 }
 
 @keyframes start {
-from {
-    top: -50%;
-}
+from {top: -50%;}
 }
 
 .buttons button.start:hover:before, .buttons button.start:hover:after {
@@ -233,8 +235,7 @@ from {
 }
 
 .input {
-    border: solid 1.5px var(--color-shadow);
-    border-radius: 1rem;
+    border-radius: var(--radius-border);
     background: var(--color-form-background);
     padding: 1rem;
     font-size: 1rem;
@@ -304,4 +305,17 @@ from {
 .button:hover .hover-text {
     width: 100%;
     filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+/* selectfield */
+
+.selectfield {
+    background-color: var(--color-button-background);
+    color: var(--color-button-hover);
+    padding: 12px;
+    min-width: 60px;
+    border: none;
+    font-size: 20px;
+    border-radius: var(--radius-border);
+    outline: none;
 }
