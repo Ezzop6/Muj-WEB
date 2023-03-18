@@ -39,7 +39,11 @@
         {% for week in month_days %}
             <tr>
                 {% for day in week %}
+                    {% if day != 0 %}
                     <td><a class="day" href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
                 {% endfor %}
             </tr>
             {% endfor %}

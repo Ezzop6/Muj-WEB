@@ -235,7 +235,7 @@ from {top: -50%;}
 }
 
 .input {
-    border-radius: var(--radius-border);
+    border-radius: 1rem;
     background: var(--color-form-background);
     padding: 1rem;
     font-size: 1rem;
@@ -247,7 +247,7 @@ from {top: -50%;}
 .user-label {
     position: absolute;
     left: 15px;
-    color: red;
+    color: var(--color-button-hover);
     pointer-events: none;
     transform: translateY(1rem);
     transition: 150ms cubic-bezier(0.4,0,0.2,1);
