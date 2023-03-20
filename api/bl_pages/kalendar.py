@@ -16,6 +16,10 @@ from datetime import date
 
 kalendar = Blueprint('kalendar', __name__)
 
+@kalendar.route('/about_app', methods=['GET', 'POST'])
+def about_app():
+    return render_template('kalendar/about_app.html')
+
 @kalendar.route('/', methods=['GET', 'POST'])
 def main_page():
     form = Kalendar()
@@ -23,7 +27,8 @@ def main_page():
     # Nastavi defaultni hodnoty pro rok a mesic
     year = int(form.year.default)
     month = int(form.month.default)
-    
+    today = (date.today().year,date.today().month,date.today().day)
+
     if form.validate():
         
         year = int(form.year.data)
@@ -35,6 +40,7 @@ def main_page():
                         month_days=month_days, 
                         current_calendar=(year, month), 
                         form=form,
+                        today=today
                         )
         
     cal = calendar.Calendar(firstweekday=0)
@@ -44,10 +50,11 @@ def main_page():
                         month_days=month_days, 
                         current_calendar=(year, month), 
                         form=form,
+                        today=today
                         )
     
     
 @kalendar.route('/<int:year>/<int:month>/<int:day>', methods=['GET', 'POST'])
 def day_page(year, month, day):
-    today = date(year, month, day)
-    return render_template('kalendar/day.html', year=year, month=month, day=day, today=today)
+    day_to_edit = date(year, month, day)
+    return render_template('kalendar/day.html', year=year, month=month, day=day, day_to_edit=day_to_edit)

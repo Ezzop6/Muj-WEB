@@ -24,7 +24,15 @@
     </div>
     <div class="navbar">
         <ul>
-            <li><a href="{{ url_for( 'main_pages.register' ) }}">
+            <li><a href="{{ url_for( 'main_pages.main_page' ) }}">
+                <div class="buttons">
+                    <button class="btn"><span></span>
+                        <p data-start="good luck!" data-text="Z5 na hlavni stranu" data-title="Home"></p>
+                    </button>
+                </div>
+            </a>
+            </li>
+            <li><a href="{{ url_for( 'kalendar.about_app' ) }}">
                 <div class="buttons">
                     <button class="btn"><span></span>
                         <p data-start="good luck!" data-text="Info jak to pouzivat" data-title="O aplikaci"></p>

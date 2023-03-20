@@ -25,7 +25,6 @@
         </div>
     </form>
     </div>
-
     <table class="calendar_tab">
         <tr>
             <th>Po</th>
@@ -40,7 +39,11 @@
             <tr>
                 {% for day in week %}
                     {% if day != 0 %}
-                    <td><a class="day" href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+                        {% if today[0] == current_calendar[0] and today[1] == current_calendar[1] and day == today[2] %}
+                            <td><a class="day today" href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+                        {% else %}
+                        <td><a class="day" href="{{ url_for( 'kalendar.day_page', year=current_calendar[0], month=current_calendar[1], day=day)}}">{{ day if day != 0 else '' }}</a></td>
+                        {% endif %}
                     {% else %}
                     <td></td>
                     {% endif %}
