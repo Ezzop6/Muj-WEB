@@ -3,7 +3,7 @@
 *.pyc
 __pycache__
 readme_pro_mne.txt
-
+TODO.txt
 # Environments 
 .env 
 .venv 

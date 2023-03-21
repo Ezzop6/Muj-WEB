@@ -57,8 +57,10 @@ class User(UserMixin):
 
 
 def get_random_produkt_img(img_path):
-    img_list = listdir(f"static/img/products/{img_path}/")
-    return f"../static/img/products/{img_path}/{choice(img_list)}"
+    img_list = listdir(f"api/static/img/products/{img_path}/")
+    img_path = f"/static/img/products/{img_path}/{choice(img_list)}"
+    return f"/static/..{img_path}"
+
 
 class PasswordGenerator:
     def __init__(self,small_letters = 3,big_letters = 3,digits = 2,special_character = 4):

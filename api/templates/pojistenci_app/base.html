@@ -15,7 +15,9 @@
         {% block header %}
         <div class="container_nav">
             <div class="logo">
+                <a href="{{ url_for( 'main_pages.main_page' )}}"> 
                 <img class="logo_img" src="{{ url_for( 'static', filename='../static/img/logo.png' ) }}" alt="logo pojistovny">
+                <a/>
                 <div class="nazev_pojistovny">
                     <h1>Poslední naděje</h1>
                     <span> - </span>

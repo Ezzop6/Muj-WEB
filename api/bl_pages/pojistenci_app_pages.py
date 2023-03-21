@@ -7,11 +7,11 @@ debug = os.environ.get("DEBUG") == "True"
 if debug:
     from forms.forms_pojistenci_app import *
     from my_packages._tools import *
-    from database_pojistenci import DbUsers, DbProducts, DbUsersProducts
+    from database import  DbPojistenciProducts, DbUsersPojistenciProducts
 else:
     from api.forms.forms_pojistenci_app import *
     from api.my_packages._tools import *
-    from api.database_pojistenci import DbUsers, DbProducts, DbUsersProducts
+    from api.database import  DbPojistenciProducts, DbUsersPojistenciProducts
 
 from flask import Flask, render_template, request, redirect, url_for, Blueprint
 from flask_login import current_user, login_required, login_user, logout_user
@@ -24,8 +24,8 @@ pojistenci_app = Blueprint('pojistenci_app', __name__)
 
 
 db_user = DbUsers()
-db_product = DbProducts()
-db_up = DbUsersProducts()
+db_product = DbPojistenciProducts()
+db_up = DbUsersPojistenciProducts()
 
 
 

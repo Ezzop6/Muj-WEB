@@ -11,11 +11,12 @@ else:
     
 from dotenv import load_dotenv, find_dotenv
 import os
-from pymongo import MongoClient 
+from pymongo import MongoClient ,ASCENDING, DESCENDING
 from bson.objectid import ObjectId
 from cryptography.fernet import Fernet
 import datetime
 
+import re
 
 
 class DbConnection:
@@ -139,3 +140,47 @@ class DbReceptar(DbUsersMain):
         '''Creates new recept in database'''
         self.receptar.insert_one({"_id":ObjectId(user_id), "name":name})
         
+
+class DbPojistenciProducts(DbUsersMain):
+    def __init__(self):
+        super().__init__()
+        self.db = self.client.pojistenci_uzivatele.products
+        
+    def add_product(self, product):
+        '''Adds product to database'''
+        self.db.insert_one(product)
+        
+    def get_all_products(self):
+        '''Returns all products'''
+        return self.db.find()
+    
+    def check_if_name_exists(self, product_name):
+        '''Checks if product exists'''
+        if self.db.count_documents({"name": product_name}) > 0:
+            cprint("Product already exists")
+            return True
+    
+    def get_product_by_name(self,produkt_name):
+        '''Returns product by name'''
+        produkt = self.db.find_one({"name": produkt_name})
+        return produkt
+    
+    def delete_product(self, produkt_name):
+        '''Deletes product by name'''
+        self.db.delete_one({"name": produkt_name})
+        
+    def get_product_id(self,product_name):
+        '''Returns product id'''
+        return self.db.find_one({"name": product_name})["_id"]
+    
+    def add_product_imgs_path(self,product_name,imgs_path):
+        self.db.update_one({"name": product_name}, {"$set": {"imgs_path": imgs_path}})
+    
+    def update_product(self,product_name,description,price_per_month):
+        '''Updates product description and price by name'''
+        self.db.update_one({"name": product_name}, {"$set": {"description": description, "price": price_per_month}})
+        
+class DbUsersPojistenciProducts(DbUsersMain):
+    def __init__(self):
+        super().__init__()
+        self.db = self.client.pojistenci_uzivatele.users_product
