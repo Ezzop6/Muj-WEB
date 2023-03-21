@@ -1,0 +1,2512 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/normalize2.css')}}" />
+        <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/tahak_na_python.css')}}" />
+
+        <title>Document</title>
+    </head>
+    <body>
+        <section class="funkce_a_metody">
+            <!-- Built in Functions -->
+            <div class="bunka funkce">
+                <header class="nadpis_bunky">Functions</header>
+                <div class="kontainer_pro_obsah bunka_funkce">
+                    <a href="https://www.w3schools.com/python/ref_func_abs.asp"
+                        >abs()<small class="hide"
+                            >Returns the absolute value of a number</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_all.asp"
+                        >all()<small class="hide"
+                            >Returns True if all items in an iterable object are
+                            true</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_any.asp"
+                        >any()<small class="hide"
+                            >Returns True if any item in an iterable object is
+                            true</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_ascii.asp"
+                        >ascii()<small class="hide"
+                            >Returns a readable version of an object. Replaces
+                            none-ascii characters with escape character</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_bin.asp"
+                        >bin()<small class="hide"
+                            >Returns the binary version of a number</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_bool.asp"
+                        >bool()<small class="hide"
+                            >Returns the boolean value of the specified
+                            object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_bytearray.asp"
+                        >bytearray()<small class="hide"
+                            >Returns an array of bytes</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_bytes.asp"
+                        >bytes()<small class="hide"
+                            >Returns a bytes object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_callable.asp"
+                        >callable()<small class="hide"
+                            >Returns True if the specified object is callable,
+                            otherwise False</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_chr.asp"
+                        >chr()<small class="hide"
+                            >Returns a character from the specified Unicode
+                            code.</small
+                        ></a
+                    >
+                    <a href=""
+                        >classmethod()<small class="hide"
+                            >Converts a method into a class method</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_compile.asp"
+                        >compile()<small class="hide"
+                            >Returns the specified source as an object, ready to
+                            be executed</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_complex.asp"
+                        >complex()<small class="hide"
+                            >Returns a complex number</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_delattr.asp"
+                        >delattr()<small class="hide"
+                            >Deletes the specified attribute (property or
+                            method) from the specified object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_dict.asp"
+                        >dict()<small class="hide"
+                            >Returns a dictionary (Array)</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_dir.asp"
+                        >dir()<small class="hide"
+                            >Returns a list of the specified object's properties
+                            and methods</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_divmod.asp"
+                        >divmod()<small class="hide"
+                            >Returns the quotient and the remainder when
+                            argument1 is divided by argument2</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_enumerate.asp"
+                        >enumerate()<small class="hide"
+                            >Takes a collection (e.g. a tuple) and returns it as
+                            an enumerate object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_eval.asp"
+                        >eval()<small class="hide"
+                            >Evaluates and executes an expression</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_exec.asp"
+                        >exec()<small class="hide"
+                            >Executes the specified code (or object)</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_filter.asp"
+                        >filter()<small class="hide"
+                            >Use a filter function to exclude items in an
+                            iterable object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_float.asp"
+                        >float()<small class="hide"
+                            >Returns a floating point number</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_format.asp"
+                        >format()<small class="hide"
+                            >Formats a specified value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_frozenset.asp"
+                        >frozenset()<small class="hide"
+                            >Returns a frozenset object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_getattr.asp"
+                        >getattr()<small class="hide"
+                            >Returns the value of the specified attribute
+                            (property or method)</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_globals.asp"
+                        >globals()<small class="hide"
+                            >Returns the current global symbol table as a
+                            dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_hasattr.asp"
+                        >hasattr()<small class="hide"
+                            >Returns True if the specified object has the
+                            specified attribute (property/method)</small
+                        ></a
+                    >
+                    <a href=""
+                        >hash()<small class="hide"
+                            >Returns the hash value of a specified object</small
+                        ></a
+                    >
+                    <a href=""
+                        >help()<small class="hide"
+                            >Executes the built-in help system</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_hex.asp"
+                        >hex()<small class="hide"
+                            >Converts a number into a hexadecimal value</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_id.asp"
+                        >id()<small class="hide"
+                            >Returns the id of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_input.asp"
+                        >input()<small class="hide"
+                            >Allowing user input</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_int.asp"
+                        >int()<small class="hide"
+                            >Returns an integer number</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_isinstance.asp"
+                        >isinstance()<small class="hide"
+                            >Returns True if a specified object is an instance
+                            of a specified object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_issubclass.asp"
+                        >issubclass()<small class="hide"
+                            >Returns True if a specified class is a subclass of
+                            a specified object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_iter.asp"
+                        >iter()<small class="hide"
+                            >Returns an iterator object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_len.asp"
+                        >len()<small class="hide"
+                            >Returns the length of an object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_list.asp"
+                        >list()<small class="hide">Returns a list</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_locals.asp"
+                        >locals()<small class="hide"
+                            >Returns an updated dictionary of the current local
+                            symbol table</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_map.asp"
+                        >map()<small class="hide"
+                            >Returns the specified iterator with the specified
+                            function applied to each item</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_max.asp"
+                        >max()<small class="hide"
+                            >Returns the largest item in an iterable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_memoryview.asp"
+                        >memoryview()<small class="hide"
+                            >Returns a memory view object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_min.asp"
+                        >min()<small class="hide"
+                            >Returns the smallest item in an iterable</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_next.asp"
+                        >next()<small class="hide"
+                            >Returns the next item in an iterable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_object.asp"
+                        >object()<small class="hide"
+                            >Returns a new object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_oct.asp"
+                        >oct()<small class="hide"
+                            >Converts a number into an octal</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_open.asp"
+                        >open()<small class="hide"
+                            >Opens a file and returns a file object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_ord.asp"
+                        >ord()<small class="hide"
+                            >Convert an integer representing the Unicode of the
+                            specified character</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_pow.asp"
+                        >pow()<small class="hide"
+                            >Returns the value of x to the power of y</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_print.asp"
+                        >print()<small class="hide"
+                            >Prints to the standard output device</small
+                        ></a
+                    >
+                    <a href=""
+                        >property()<small class="hide"
+                            >Gets, sets, deletes a property</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_range.asp"
+                        >range()<small class="hide"
+                            >Returns a sequence of numbers, starting from 0 and
+                            increments by 1 (by default)</small
+                        ></a
+                    >
+                    <a href=""
+                        >repr()<small class="hide"
+                            >Returns a readable version of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_reversed.asp"
+                        >reversed()<small class="hide"
+                            >Returns a reversed iterator</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_round.asp"
+                        >round()<small class="hide">Rounds a numbers</small></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_set.asp"
+                        >set()<small class="hide"
+                            >Returns a new set object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_setattr.asp"
+                        >setattr()<small class="hide"
+                            >Sets an attribute (property/method) of an
+                            object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_slice.asp"
+                        >slice()<small class="hide"
+                            >Returns a slice object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_sorted.asp"
+                        >sorted()<small class="hide"
+                            >Returns a sorted list</small
+                        ></a
+                    >
+                    <a href=""
+                        >staticmethod()<small class="hide"
+                            >Converts a method into a static method</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_str.asp"
+                        >str()<small class="hide"
+                            >Returns a string object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_sum.asp"
+                        >sum()<small class="hide"
+                            >Sums the items of an iterator</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_super.asp"
+                        >super()<small class="hide"
+                            >Returns an object that represents the parent
+                            class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_func_tuple.asp"
+                        >tuple()<small class="hide">Returns a tuple</small></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_type.asp"
+                        >type()<small class="hide"
+                            >Returns the type of an object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_vars.asp"
+                        >vars()<small class="hide"
+                            >Returns the __dict__ property of an object</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_func_zip.asp"
+                        >zip()<small class="hide"
+                            >Returns an iterator, from two or more
+                            iterators</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- String Methods -->
+            <div class="bunka metody_string">
+                <header class="nadpis_bunky">String Methods</header>
+                <div class="kontainer_pro_obsah bunka_string">
+                    <a
+                        href="https://www.w3schools.com/python/ref_string_capitalize.asp"
+                        >capitalize()<small class="hide"
+                            >Converts the first character to upper case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_casefold.asp"
+                        >casefold()<small class="hide"
+                            >Converts string into lower case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_center.asp"
+                        >center()<small class="hide"
+                            >Returns a centered string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_count.asp"
+                        >count()<small class="hide"
+                            >Returns the number of times a specified value
+                            occurs in a string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_encode.asp"
+                        >encode()<small class="hide"
+                            >Returns an encoded version of the string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_endswith.asp"
+                        >endswith()<small class="hide"
+                            >Returns true if the string ends with the specified
+                            value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_expandtabs.asp"
+                        >expandtabs()<small class="hide"
+                            >Sets the tab size of the string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_find.asp"
+                        >find()<small class="hide"
+                            >Searches the string for a specified value and
+                            returns the position of where it was found</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_format.asp"
+                        >format()<small class="hide"
+                            >Formats specified values in a string</small
+                        ></a
+                    >
+                    <a href=""
+                        >format_map()<small class="hide"
+                            >Formats specified values in a string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_string_index.asp"
+                        >index()<small class="hide"
+                            >Searches the string for a specified value and
+                            returns the position of where it was found</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isalnum.asp"
+                        >isalnum()<small class="hide"
+                            >Returns True if all characters in the string are
+                            alphanumeric</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isalpha.asp"
+                        >isalpha()<small class="hide"
+                            >Returns True if all characters in the string are in
+                            the alphabet</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isascii.asp"
+                        >isascii()<small class="hide"
+                            >Returns True if all characters in the string are
+                            ascii characters</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isdecimal.asp"
+                        >isdecimal()<small class="hide"
+                            >Returns True if all characters in the string are
+                            decimals</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isdigit.asp"
+                        >isdigit()<small class="hide"
+                            >Returns True if all characters in the string are
+                            digits</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isidentifier.asp"
+                        >isidentifier()<small class="hide"
+                            >Returns True if the string is an identifier</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_islower.asp"
+                        >islower()<small class="hide"
+                            >Returns True if all characters in the string are
+                            lower case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isnumeric.asp"
+                        >isnumeric()<small class="hide"
+                            >Returns True if all characters in the string are
+                            numeric</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isprintable.asp"
+                        >isprintable()<small class="hide"
+                            >Returns True if all characters in the string are
+                            printable</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isspace.asp"
+                        >isspace()<small class="hide"
+                            >Returns True if all characters in the string are
+                            whitespaces</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_istitle.asp"
+                        >istitle()<small class="hide"
+                            >Returns True if the string follows the rules of a
+                            title</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_isupper.asp"
+                        >isupper()<small class="hide"
+                            >Returns True if all characters in the string are
+                            upper case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_join.asp"
+                        >join()<small class="hide"
+                            >Converts the elements of an iterable into a
+                            string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_ljust.asp"
+                        >ljust()<small class="hide"
+                            >Returns a left justified version of the
+                            string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_lower.asp"
+                        >lower()<small class="hide"
+                            >Converts a string into lower case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_lstrip.asp"
+                        >lstrip()<small class="hide"
+                            >Returns a left trim version of the string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_maketrans.asp"
+                        >maketrans()<small class="hide"
+                            >Returns a translation table to be used in
+                            translations</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_partition.asp"
+                        >partition()<small class="hide"
+                            >Returns a tuple where the string is parted into
+                            three parts</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_replace.asp"
+                        >replace()<small class="hide"
+                            >Returns a string where a specified value is
+                            replaced with a specified value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rfind.asp"
+                        >rfind()<small class="hide"
+                            >Searches the string for a specified value and
+                            returns the last position of where it was
+                            found</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rindex.asp"
+                        >rindex()<small class="hide"
+                            >Searches the string for a specified value and
+                            returns the last position of where it was
+                            found</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rjust.asp"
+                        >rjust()<small class="hide"
+                            >Returns a right justified version of the
+                            string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rpartition.asp"
+                        >rpartition()<small class="hide"
+                            >Returns a tuple where the string is parted into
+                            three parts</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rsplit.asp"
+                        >rsplit()<small class="hide"
+                            >Splits the string at the specified separator, and
+                            returns a list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_rstrip.asp"
+                        >rstrip()<small class="hide"
+                            >Returns a right trim version of the string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_split.asp"
+                        >split()<small class="hide"
+                            >Splits the string at the specified separator, and
+                            returns a list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_splitlines.asp"
+                        >splitlines()<small class="hide"
+                            >Splits the string at line breaks and returns a
+                            list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_startswith.asp"
+                        >startswith()<small class="hide"
+                            >Returns true if the string starts with the
+                            specified value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_string_strip.asp"
+                        >strip()<small class="hide"
+                            >Returns a trimmed version of the string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_string_swapcase.asp"
+                        >swapcase()<small class="hide"
+                            >Swaps cases, lower case becomes upper case and vice
+                            versa</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_title.asp"
+                        >title()<small class="hide"
+                            >Converts the first character of each word to upper
+                            case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_translate.asp"
+                        >translate()<small class="hide"
+                            >Returns a translated string</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_upper.asp"
+                        >upper()<small class="hide"
+                            >Converts a string into upper case</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_string_zfill.asp"
+                        >zfill()<small class="hide"
+                            >Fills the string with a specified number of 0
+                            values at the beginning</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- List/Array Methods -->
+            <div class="bunka metody_list">
+                <header class="nadpis_bunky">List/Array Methods</header>
+                <div class="kontainer_pro_obsah bunka_list">
+                    <a
+                        href="https://www.w3schools.com/python/ref_list_append.asp"
+                        >append()<small class="hide"
+                            >Adds an element at the end of the list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_clear.asp"
+                        >clear()<small class="hide"
+                            >Removes all the elements from the list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_copy.asp"
+                        >copy()<small class="hide"
+                            >Returns a copy of the list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_count.asp"
+                        >count()<small class="hide"
+                            >Returns the number of elements with the specified
+                            value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_extend.asp"
+                        >extend()<small class="hide"
+                            >Add the elements of a list (or any iterable), to
+                            the end of the current list</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_index.asp"
+                        >index()<small class="hide"
+                            >Returns the index of the first element with the
+                            specified value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_insert.asp"
+                        >insert()<small class="hide"
+                            >Adds an element at the specified position</small
+                        ></a
+                    ><a href="https://www.w3schools.com/python/ref_list_pop.asp"
+                        >pop()<small class="hide"
+                            >Removes the element at the specified
+                            position</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_remove.asp"
+                        >remove()<small class="hide"
+                            >Removes the first item with the specified
+                            value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_list_reverse.asp"
+                        >reverse()<small class="hide"
+                            >Reverses the order of the list</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_list_sort.asp"
+                        >sort()<small class="hide">Sorts the list</small></a
+                    >
+                </div>
+            </div>
+            <!-- Dictionary Methods-->
+            <div class="bunka metody_dict">
+                <header class="nadpis_bunky">Dictionary Methods</header>
+                <div class="kontainer_pro_obsah bunka_dict">
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_clear.asp"
+                        >clear()<small class="hide"
+                            >Removes all the elements from the dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_copy.asp"
+                        >copy()<small class="hide"
+                            >Returns a copy of the dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_fromkeys.asp"
+                        >fromkeys()<small class="hide"
+                            >Returns a dictionary with the specified keys and
+                            value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_get.asp"
+                        >get()<small class="hide"
+                            >Returns the value of the specified key</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_items.asp"
+                        >items()<small class="hide"
+                            >Returns a list containing a tuple for each key
+                            value pair</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_keys.asp"
+                        >keys()<small class="hide"
+                            >Returns a list containing the dictionary's
+                            keys</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_pop.asp"
+                        >pop()<small class="hide"
+                            >Removes the element with the specified key</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_popitem.asp"
+                        >popitem()<small class="hide"
+                            >Removes the last inserted key-value pair</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_setdefault.asp"
+                        >setdefault()<small class="hide"
+                            >Returns the value of the specified key. If the key
+                            does not exist: insert the key, with the specified
+                            value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_update.asp"
+                        >update()<small class="hide"
+                            >Updates the dictionary with the specified key-value
+                            pairs</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_dictionary_values.asp"
+                        >values()<small class="hide"
+                            >Returns a list of all the values in the
+                            dictionary</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- Tuple Methods -->
+            <div class="bunka metody_tuple">
+                <header class="nadpis_bunky">Tuple Methods</header>
+                <div class="kontainer_pro_obsah bunka_tuple">
+                    <a
+                        href="https://www.w3schools.com/python/ref_tuple_count.asp"
+                        >count()<small class="hide"
+                            >Returns the number of times a specified value
+                            occurs in a tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_tuple_index.asp"
+                        >index()<small class="hide"
+                            >Searches the tuple for a specified value and
+                            returns the position of where it was found</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- Set Methods -->
+            <div class="bunka metody_set">
+                <header class="nadpis_bunky">Set Methods</header>
+                <div class="kontainer_pro_obsah bunka_set">
+                    <a href="https://www.w3schools.com/python/ref_set_add.asp"
+                        >add()<small class="hide"
+                            >Adds an element to the set</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_clear.asp"
+                        >clear()<small class="hide"
+                            >Removes all the elements from the set</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_set_copy.asp"
+                        >copy()<small class="hide"
+                            >Returns a copy of the set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_difference.asp"
+                        >difference()<small class="hide"
+                            >Returns a set containing the difference between two
+                            or more sets</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_difference_update.asp"
+                        >difference_update()<small class="hide"
+                            >Removes the items in this set that are also
+                            included in another, specified set</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_discard.asp"
+                        >discard()<small class="hide"
+                            >Remove the specified item</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_intersection.asp"
+                        >intersection()<small class="hide"
+                            >Returns a set, that is the intersection of two or
+                            more sets</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_intersection_update.asp"
+                        >intersection_update()<small class="hide"
+                            >Removes the items in this set that are not present
+                            in other, specified set(s)</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_isdisjoint.asp"
+                        >isdisjoint()<small class="hide"
+                            >Returns whether two sets have a intersection or
+                            not</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_issubset.asp"
+                        >issubset()<small class="hide"
+                            >Returns whether another set contains this set or
+                            not</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_issuperset.asp"
+                        >issuperset()<small class="hide"
+                            >Returns whether this set contains another set or
+                            not</small
+                        ></a
+                    ><a href="https://www.w3schools.com/python/ref_set_pop.asp"
+                        >pop()<small class="hide"
+                            >Removes an element from the set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_remove.asp"
+                        >remove()<small class="hide"
+                            >Removes the specified element</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_symmetric_difference.asp"
+                        >symmetric_difference()<small class="hide"
+                            >Returns a set with the symmetric differences of two
+                            sets</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_set_symmetric_difference_update.asp"
+                        >symmetric_difference_update()<small class="hide"
+                            >inserts the symmetric differences from this set and
+                            another</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_set_union.asp"
+                        >union()<small class="hide"
+                            >Return a set containing the union of sets</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_set_update.asp"
+                        >update()<small class="hide"
+                            >Update the set with another set, or any other
+                            iterable</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- File Methods -->
+            <div class="bunka metody_file">
+                <header class="nadpis_bunky">File Methods</header>
+                <div class="kontainer_pro_obsah bunka_file">
+                    <a
+                        href="https://www.w3schools.com/python/ref_file_close.asp"
+                        >close()<small class="hide">Closes the file</small></a
+                    >
+                    <a href=""
+                        >detach()<small class="hide"
+                            >Returns the separated raw stream from the
+                            buffer</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_file_fileno.asp"
+                        >fileno()<small class="hide"
+                            >Returns a number that represents the stream, from
+                            the operating system's perspective</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_flush.asp"
+                        >flush()<small class="hide"
+                            >Flushes the internal buffer</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_isatty.asp"
+                        >isatty()<small class="hide"
+                            >Returns whether the file stream is interactive or
+                            not</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_file_read.asp"
+                        >read()<small class="hide"
+                            >Returns the file content</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_file_readable.asp"
+                        >readable()<small class="hide"
+                            >Returns whether the file stream can be read or
+                            not</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_readline.asp"
+                        >readline()<small class="hide"
+                            >Returns one line from the file</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_readlines.asp"
+                        >readlines()<small class="hide"
+                            >Returns a list of lines from the file</small
+                        ></a
+                    >
+                    <a href="https://www.w3schools.com/python/ref_file_seek.asp"
+                        >seek()<small class="hide"
+                            >Change the file position</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_file_seekable.asp"
+                        >seekable()<small class="hide"
+                            >Returns whether the file allows us to change the
+                            file position</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_tell.asp"
+                        >tell()<small class="hide"
+                            >Returns the current file position</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_truncate.asp"
+                        >truncate()<small class="hide"
+                            >Resizes the file to a specified size</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_writable.asp"
+                        >writable()<small class="hide"
+                            >Returns whether the file can be written to or
+                            not</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_write.asp"
+                        >write()<small class="hide"
+                            >Writes the specified string to the file</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_file_writelines.asp"
+                        >writelines()<small class="hide"
+                            >Writes a list of strings to the file</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- Keywords -->
+            <div class="bunka keywords">
+                <header class="nadpis_bunky">Keywords</header>
+                <div class="kontainer_pro_obsah bunka_keyword">
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_and.asp"
+                        >and<small class="hide">A logical operator</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_as.asp"
+                        >as<small class="hide">To create an alias</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_assert.asp"
+                        >assert<small class="hide">For debugging</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_break.asp"
+                        >break<small class="hide"
+                            >To break out of a loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_class.asp"
+                        >class<small class="hide">To define a class</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_continue.asp"
+                        >continue<small class="hide"
+                            >To continue to the next iteration of a loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_def.asp"
+                        >def<small class="hide">To define a function</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_del.asp"
+                        >del<small class="hide">To delete an object</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_elif.asp"
+                        >elif<small class="hide"
+                            >Used in conditional statements, same as else
+                            if</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_else.asp"
+                        >else<small class="hide"
+                            >Used in conditional statements</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_except.asp"
+                        >except<small class="hide"
+                            >Used with exceptions, what to do when an exception
+                            occurs</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_false.asp"
+                        >FALSE<small class="hide"
+                            >Boolean value, result of comparison
+                            operations</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_finally.asp"
+                        >finally<small class="hide"
+                            >Used with exceptions, a block of code that will be
+                            executed no matter if there is an exception or
+                            not</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_for.asp"
+                        >for<small class="hide">To create a for loop</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_from.asp"
+                        >from<small class="hide"
+                            >To import specific parts of a module</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_global.asp"
+                        >global<small class="hide"
+                            >To declare a global variable</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_if.asp"
+                        >if<small class="hide"
+                            >To make a conditional statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_import.asp"
+                        >import<small class="hide">To import a module</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_in.asp"
+                        >in<small class="hide"
+                            >To check if a value is present in a list, tuple,
+                            etc.</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_is.asp"
+                        >is<small class="hide"
+                            >To test if two variables are equal</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_lambda.asp"
+                        >lambda<small class="hide"
+                            >To create an anonymous function</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_none.asp"
+                        >None<small class="hide"
+                            >Represents a null value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_nonlocal.asp"
+                        >nonlocal<small class="hide"
+                            >To declare a non-local variable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_not.asp"
+                        >not<small class="hide">A logical operator</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_or.asp"
+                        >or<small class="hide">A logical operator</small></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_pass.asp"
+                        >pass<small class="hide"
+                            >A null statement, a statement that will do
+                            nothing</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_raise.asp"
+                        >raise<small class="hide"
+                            >To raise an exception</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_return.asp"
+                        >return<small class="hide"
+                            >To exit a function and return a value</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_true.asp"
+                        >TRUE<small class="hide"
+                            >Boolean value, result of comparison
+                            operations</small
+                        ></a
+                    ><a
+                        href="https://www.w3schools.com/python/ref_keyword_try.asp"
+                        >try<small class="hide"
+                            >To make a try...except statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/ref_keyword_while.asp"
+                        >while<small class="hide"
+                            >To create a while loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.geeksforgeeks.org/with-statement-in-python/"
+                        >with<small class="hide"
+                            >Used to simplify exception handling</small
+                        ></a
+                    ><a
+                        href="https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do"
+                        >yield<small class="hide"
+                            >To end a function, returns a generator</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- Built-in Exceptions -->
+            <div class="bunka">
+                <header class="nadpis_bunky">Built-in Exceptions</header>
+                <div class="kontainer_pro_obsah bunka_exceptation">
+                    <a href=""
+                        >ArithmeticError<small class="hide"
+                            >Raised when an error occurs in numeric
+                            calculations</small
+                        ></a
+                    >
+                    <a href=""
+                        >AssertionError<small class="hide"
+                            >Raised when an assert statement fails</small
+                        ></a
+                    >
+                    <a href=""
+                        >AttributeError<small class="hide"
+                            >Raised when attribute reference or assignment
+                            fails</small
+                        ></a
+                    >
+                    <a href=""
+                        >Exception<small class="hide"
+                            >Base class for all exceptions</small
+                        ></a
+                    >
+                    <a href=""
+                        >EOFError<small class="hide"
+                            >Raised when the input() method hits an ""end of
+                            file"" condition (EOF)</small
+                        ></a
+                    >
+                    <a href=""
+                        >FloatingPointError<small class="hide"
+                            >Raised when a floating point calculation
+                            fails</small
+                        ></a
+                    >
+                    <a href=""
+                        >GeneratorExit<small class="hide"
+                            >Raised when a generator is closed (with the close()
+                            method)</small
+                        ></a
+                    >
+                    <a href=""
+                        >ImportError<small class="hide"
+                            >Raised when an imported module does not
+                            exist</small
+                        ></a
+                    >
+                    <a href=""
+                        >IndentationError<small class="hide"
+                            >Raised when indentation is not correct</small
+                        ></a
+                    >
+                    <a href=""
+                        >IndexError<small class="hide"
+                            >Raised when an index of a sequence does not
+                            exist</small
+                        ></a
+                    >
+                    <a href=""
+                        >KeyError<small class="hide"
+                            >Raised when a key does not exist in a
+                            dictionary</small
+                        ></a
+                    >
+                    <a href=""
+                        >KeyboardInterrupt<small class="hide"
+                            >Raised when the user presses Ctrl+c, Ctrl+z or
+                            Delete</small
+                        ></a
+                    >
+                    <a href=""
+                        >LookupError<small class="hide"
+                            >Raised when errors raised cant be found</small
+                        ></a
+                    >
+                    <a href=""
+                        >MemoryError<small class="hide"
+                            >Raised when a program runs out of memory</small
+                        ></a
+                    >
+                    <a href=""
+                        >NameError<small class="hide"
+                            >Raised when a variable does not exist</small
+                        ></a
+                    >
+                    <a href=""
+                        >NotImplementedError<small class="hide"
+                            >Raised when an abstract method requires an
+                            inherited class to override the method</small
+                        ></a
+                    >
+                    <a href=""
+                        >OSError<small class="hide"
+                            >Raised when a system related operation causes an
+                            error</small
+                        ></a
+                    >
+                    <a href=""
+                        >OverflowError<small class="hide"
+                            >Raised when the result of a numeric calculation is
+                            too large</small
+                        ></a
+                    >
+                    <a href=""
+                        >ReferenceError<small class="hide"
+                            >Raised when a weak reference object does not
+                            exist</small
+                        ></a
+                    >
+                    <a href=""
+                        >RuntimeError<small class="hide"
+                            >Raised when an error occurs that do not belong to
+                            any specific exceptions</small
+                        ></a
+                    >
+                    <a href=""
+                        >StopIteration<small class="hide"
+                            >Raised when the next() method of an iterator has no
+                            further values</small
+                        ></a
+                    >
+                    <a href=""
+                        >SyntaxError<small class="hide"
+                            >Raised when a syntax error occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >TabError<small class="hide"
+                            >Raised when indentation consists of tabs or
+                            spaces</small
+                        ></a
+                    >
+                    <a href=""
+                        >SystemError<small class="hide"
+                            >Raised when a system error occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >SystemExit<small class="hide"
+                            >Raised when the sys.exit() function is
+                            called</small
+                        ></a
+                    >
+                    <a href=""
+                        >TypeError<small class="hide"
+                            >Raised when two different types are combined</small
+                        ></a
+                    >
+                    <a href=""
+                        >UnboundLocalError<small class="hide"
+                            >Raised when a local variable is referenced before
+                            assignment</small
+                        ></a
+                    >
+                    <a href=""
+                        >UnicodeError<small class="hide"
+                            >Raised when a unicode problem occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >UnicodeEncodeError<small class="hide"
+                            >Raised when a unicode encoding problem
+                            occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >UnicodeDecodeError<small class="hide"
+                            >Raised when a unicode decoding problem
+                            occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >UnicodeTranslateError<small class="hide"
+                            >Raised when a unicode translation problem
+                            occurs</small
+                        ></a
+                    >
+                    <a href=""
+                        >ValueError<small class="hide"
+                            >Raised when there is a wrong value in a specified
+                            data type</small
+                        ></a
+                    >
+                    <a href=""
+                        >ZeroDivisionError<small class="hide"
+                            >Raised when the second operator in a division is
+                            zero</small
+                        ></a
+                    >
+                </div>
+            </div>
+            <!-- Glossary -->
+            <div class="bunka">
+                <header class="nadpis_bunky">Glossary</header>
+                <div class="kontainer_pro_obsah bunka_glossary">
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_indentation.asp"
+                        >Indentation<small class="hide"
+                            >Indentation refers to the spaces at the beginning
+                            of a code line</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_comments.asp"
+                        >Comments<small class="hide"
+                            >Comments are code lines that will not be
+                            executed</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_multi_line_comments.asp"
+                        >Multiline Comments<small class="hide"
+                            >How to insert comments on multiple lines</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_creating_variables.asp"
+                        >Creating Variables<small class="hide"
+                            >Variables are containers for storing data
+                            values</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_variable_names.asp"
+                        >Variable Names<small class="hide"
+                            >How to name your variables</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_assign_value_to_multiple_variables.asp"
+                        >Assign Values to Multiple Variables<small class="hide"
+                            >How to assign values to multiple variables</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_variable_output.asp"
+                        >Output Variables<small class="hide"
+                            >Use the print statement to output variables</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_concatenation.asp"
+                        >String Concatenation<small class="hide"
+                            >How to combine strings</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_global_variables.asp"
+                        >Global Variables<small class="hide"
+                            >Global variables are variables that belongs to the
+                            global scope</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_built-in_data_types.asp"
+                        >Built-In Data Types<small class="hide"
+                            >Python has a set of built-in data types</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_getting_data_type.asp"
+                        >Getting Data Type<small class="hide"
+                            >How to get the data type of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_setting_data_type.asp"
+                        >Setting Data Type<small class="hide"
+                            >How to set the data type of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_numbers.asp"
+                        >Numbers<small class="hide"
+                            >There are three numeric types in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_int.asp"
+                        >Int<small class="hide"
+                            >The integer number type</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_float.asp"
+                        >Float<small class="hide"
+                            >The floating number type</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_complex.asp"
+                        >Complex<small class="hide"
+                            >The complex number type</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_type_conversion.asp"
+                        >Type Conversion<small class="hide"
+                            >How to convert from one number type to
+                            another</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_random_number.asp"
+                        >Random Number<small class="hide"
+                            >How to create a random number</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_specify_variable_type.asp"
+                        >Specify a Variable Type<small class="hide"
+                            >How to specify a certain data type for a
+                            variable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_literals.asp"
+                        >String Literals<small class="hide"
+                            >How to create string literals</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_assign_string_variable.asp"
+                        >Assigning a String to a Variable<small class="hide"
+                            >How to assign a string value to a variable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_multi_line_strings.asp"
+                        >Multiline Strings<small class="hide"
+                            >How to create a multiline string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_strings_are_arrays.asp"
+                        >Strings are Arrays<small class="hide"
+                            >Strings in Python are arrays of bytes representing
+                            Unicode characters</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_slice.asp"
+                        >Slicing a String<small class="hide"
+                            >How to slice a string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_negative_indexing.asp"
+                        >Negative Indexing on a String<small class="hide"
+                            >How to use negative indexing when accessing a
+                            string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_length.asp"
+                        >String Length<small class="hide"
+                            >How to get the length of a string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_check_string.asp"
+                        >Check In String<small class="hide"
+                            >How to check if a string contains a specified
+                            phrase</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_string_format.asp"
+                        >Format String<small class="hide"
+                            >How to combine two strings</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_escape_characters.asp"
+                        >Escape Characters<small class="hide"
+                            >How to use escape characters</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_boolean_values.asp"
+                        >Boolean Values<small class="hide"
+                            >True or False</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_evaluate_boolean_values.asp"
+                        >Evaluate Booleans<small class="hide"
+                            >Evaluate a value or statement and return either
+                            True or False</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_return_boolean.asp"
+                        >Return Boolean Value<small class="hide"
+                            >Functions that return a Boolean value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_operators.asp"
+                        >Operators<small class="hide"
+                            >Use operator to perform operations in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_arithmetic_operators.asp"
+                        >Arithmetic Operators<small class="hide"
+                            >Arithmetic operator are used to perform common
+                            mathematical operations</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_assignment_operators.asp"
+                        >Assignment Operators<small class="hide"
+                            >Assignment operators are use to assign values to
+                            variables</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_comparison_operators.asp"
+                        >Comparison Operators<small class="hide"
+                            >Comparison operators are used to compare two
+                            values</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_logical_operators.asp"
+                        >Logical Operators<small class="hide"
+                            >Logical operators are used to combine conditional
+                            statements</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_identity_operators.asp"
+                        >Identity Operators<small class="hide"
+                            >Identity operators are used to see if two objects
+                            are in fact the same object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_membership_operators.asp"
+                        >Membership Operators<small class="hide"
+                            >Membership operators are used to test is a sequence
+                            is present in an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_bitwise_operators.asp"
+                        >Bitwise Operators<small class="hide"
+                            >Bitwise operators are used to compare (binary)
+                            numbers</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_lists.asp"
+                        >Lists<small class="hide"
+                            >A list is an ordered, and changeable,
+                            collection</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_access_list_items.asp"
+                        >Access List Items<small class="hide"
+                            >How to access items in a list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_change_list_item.asp"
+                        >Change List Item<small class="hide"
+                            >How to change the value of a list item</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_loop_list_items.asp"
+                        >Loop Through List Items<small class="hide"
+                            >How to loop through the items in a list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_list_comprehension.asp"
+                        >List Comprehension<small class="hide"
+                            >How use a list comprehensive</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_check_if_list_item_exists.asp"
+                        >Check if List Item Exists<small class="hide"
+                            >How to check if a specified item is present in a
+                            list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_list_length.asp"
+                        >List Length<small class="hide"
+                            >How to determine the length of a list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_add_list_items.asp"
+                        >Add List Items<small class="hide"
+                            >How to add items to a list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_remove_list_items.asp"
+                        >Remove List Items<small class="hide"
+                            >How to remove list items</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_copy_list.asp"
+                        >Copy a List<small class="hide"
+                            >How to copy a list</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_join_lists.asp"
+                        >Join Two Lists<small class="hide"
+                            >How to join two lists</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_tuple.asp"
+                        >Tuple<small class="hide"
+                            >A tuple is an ordered, and unchangeable,
+                            collection</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_access_tuple_items.asp"
+                        >Access Tuple Items<small class="hide"
+                            >How to access items in a tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_change_tuple_item.asp"
+                        >Change Tuple Item<small class="hide"
+                            >How to change the value of a tuple item</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_loop_tuple_items.asp"
+                        >Loop List Items<small class="hide"
+                            >How to loop through the items in a tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_check_if_tuple_item_exists.asp"
+                        >Check if Tuple Item Exists<small class="hide"
+                            >How to check if a specified item is present in a
+                            tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_tuple_length.asp"
+                        >Tuple Length<small class="hide"
+                            >How to determine the length of a tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_tuple_one_item.asp"
+                        >Tuple With One Item<small class="hide"
+                            >How to create a tuple with only one item</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_remove_tuple_items.asp"
+                        >Remove Tuple Items<small class="hide"
+                            >How to remove tuple items</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_join_tuple.asp"
+                        >Join Two Tuples<small class="hide"
+                            >How to join two tuples</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_set.asp"
+                        >Set<small class="hide"
+                            >A set is an unordered, and unchangeable,
+                            collection</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_access_set_items.asp"
+                        >Access Set Items<small class="hide"
+                            >How to access items in a set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_add_set_items.asp"
+                        >Add Set Items<small class="hide"
+                            >How to add items to a set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_loop_set_items.asp"
+                        >Loop Set Items<small class="hide"
+                            >How to loop through the items in a set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_check_if_set_item_exists.asp"
+                        >Check if Set Item Exists<small class="hide"
+                            >How to check if a item exists</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_set_length.asp"
+                        >Set Length<small class="hide"
+                            >How to determine the length of a set</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_remove_set_items.asp"
+                        >Remove Set Items<small class="hide"
+                            >How to remove set items</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_join_sets.asp"
+                        >Join Two Sets<small class="hide"
+                            >How to join two sets</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_dictionary.asp"
+                        >Dictionary<small class="hide"
+                            >A dictionary is an unordered, and changeable,
+                            collection</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_access_dictionary_items.asp"
+                        >Access Dictionary Items<small class="hide"
+                            >How to access items in a dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_change_dictionary_item.asp"
+                        >Change Dictionary Item<small class="hide"
+                            >How to change the value of a dictionary item</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_loop_dictionary_items.asp"
+                        >Loop Dictionary Items<small class="hide"
+                            >How to loop through the items in a tuple</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_check_if_dictionary_item_exists.asp"
+                        >Check if Dictionary Item Exists<small class="hide"
+                            >How to check if a specified item is present in a
+                            dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_dictionary_length.asp"
+                        >Dictionary Length<small class="hide"
+                            >How to determine the length of a dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_dictionary_add_item.asp"
+                        >Add Dictionary Item<small class="hide"
+                            >How to add an item to a dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_remove_dictionary_items.asp"
+                        >Remove Dictionary Items<small class="hide"
+                            >How to remove dictionary items</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_copy_dictionary.asp"
+                        >Copy Dictionary<small class="hide"
+                            >How to copy a dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_nested_dictionaries.asp"
+                        >Nested Dictionaries<small class="hide"
+                            >A dictionary within a dictionary</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_statement.asp"
+                        >If Statement<small class="hide"
+                            >How to write an if statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_indentation.asp"
+                        >If Indentation<small class="hide"
+                            >If statemnts in Python relies on indentation
+                            (whitespace at the beginning of a line)</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_elif.asp"
+                        >Elif<small class="hide"
+                            >elif is the same as "else if" in other programming
+                            languages</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_else.asp"
+                        >Else<small class="hide"
+                            >How to write an if...else statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_shorthand.asp"
+                        >Shorthand If<small class="hide"
+                            >How to write an if statement in one line</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_else_shorthand.asp"
+                        >Shorthand If Else<small class="hide"
+                            >How to write an if...else statement in one
+                            line</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_and.asp"
+                        >If AND<small class="hide"
+                            >Use the and keyword to combine if statements</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_or.asp"
+                        >If OR<small class="hide"
+                            >Use the or keyword to combine if statements</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_nested.asp"
+                        >Nested If<small class="hide"
+                            >How to write an if statement inside an if
+                            statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_if_pass.asp"
+                        >The pass Keyword in If<small class="hide"
+                            >Use the pass keyword inside empty if
+                            statements</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_while.asp"
+                        >While<small class="hide"
+                            >How to write a while loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_while_break.asp"
+                        >While Break<small class="hide"
+                            >How to break a while loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_while_continue.asp"
+                        >While Continue<small class="hide"
+                            >How to stop the current iteration and continue wit
+                            the next</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_while_else.asp"
+                        >While Else<small class="hide"
+                            >How to use an else statement in a while loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for.asp"
+                        >For<small class="hide"
+                            >How to write a for loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_string.asp"
+                        >Loop Through a String<small class="hide"
+                            >How to loop through a string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_break.asp"
+                        >For Break<small class="hide"
+                            >How to break a for loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_continue.asp"
+                        >For Continue<small class="hide"
+                            >How to stop the current iteration and continue wit
+                            the next</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_range.asp"
+                        >Looping Through a rangee<small class="hide"
+                            >How to loop through a range of values</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_else.asp"
+                        >For Else<small class="hide"
+                            >How to use an else statement in a for loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_nested.asp"
+                        >Nested Loops<small class="hide"
+                            >How to write a loop inside a loop</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_for_pass.asp"
+                        >For pass<small class="hide"
+                            >Use the pass keyword inside empty for loops</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function.asp"
+                        >Function<small class="hide"
+                            >How to create a function in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_call.asp"
+                        >Call a Function<small class="hide"
+                            >How to call a function in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_arguments.asp"
+                        >Function Arguments<small class="hide"
+                            >How to use arguments in a function</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_arbitrary_arguments.asp"
+                        >*args<small class="hide"
+                            >To deal with an unknown number of arguments in a
+                            function, use the * symbol before the parameter
+                            name</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_keyword_arguments.asp"
+                        >Keyword Arguments<small class="hide"
+                            >How to use keyword arguments in a function</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_arbitrary_keyword_arguments.asp"
+                        >**kwargs<small class="hide"
+                            >To deal with an unknown number of keyword arguments
+                            in a function, use the * symbol before the parameter
+                            name</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_default_parameter.asp"
+                        >Default Parameter Value<small class="hide"
+                            >How to use a default parameter value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_passing_list.asp"
+                        >Passing a List as an Argument<small class="hide"
+                            >How to pass a list as an argument</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_return_value.asp"
+                        >Function Return Value<small class="hide"
+                            >How to return a value from a function</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_pass.asp"
+                        >The pass Statement i Functions<small class="hide"
+                            >Use the pass statement in empty functions</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_function_recursion.asp"
+                        >Function Recursion<small class="hide"
+                            >Functions that can call itself is called recursive
+                            functions</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_lambda.asp"
+                        >Lambda Function<small class="hide"
+                            >How to create anonymous functions in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_lambda_why.asp"
+                        >Why Use Lambda Functions<small class="hide"
+                            >Learn when to use a lambda function or not</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array.asp"
+                        >Array<small class="hide"
+                            >Lists can be used as Arrays</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_arrray_what_is.asp"
+                        >What is an Array<small class="hide"
+                            >Arrays are variables that can hold more than one
+                            value</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_access.asp"
+                        >Access Arrays<small class="hide"
+                            >How to access array items</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_length.asp"
+                        >Array Length<small class="hide"
+                            >How to get the length of an array</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_loop.asp"
+                        >Looping Array Elements<small class="hide"
+                            >How to loop through array elements</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_add.asp"
+                        >Add Array Element<small class="hide"
+                            >How to add elements from an array</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_remove.asp"
+                        >Remove Array Element<small class="hide"
+                            >How to remove elements from an array</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_array_methods.asp"
+                        >Array Methods<small class="hide"
+                            >Python has a set of Array/Lists methods</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class.asp"
+                        >Class<small class="hide"
+                            >A class is like an object constructor</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class_create.asp"
+                        >Create Class<small class="hide"
+                            >How to create a class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class_init.asp"
+                        >The Class __init__() Function<small class="hide"
+                            >The __init__() function is executed when the class
+                            is initiated</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_object_methods.asp"
+                        >Object Methods<small class="hide"
+                            >Methods in objects are functions that belongs to
+                            the object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_self.asp"
+                        >self<small class="hide"
+                            >The self parameter refers to the current instance
+                            of the class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_object_modify_properties.asp"
+                        >Modify Object Properties<small class="hide"
+                            >How to modify properties of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_object_delete_properties.asp"
+                        >Delete Object Properties<small class="hide"
+                            >How to modify properties of an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_object_delete.asp"
+                        >Delete Object<small class="hide"
+                            >How to delete an object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class_pass.asp"
+                        >Class pass Statement<small class="hide"
+                            >Use the pass statement in empty classes</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_parent_class.asp"
+                        >Create Parent Class<small class="hide"
+                            >How to create a parent class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_child_class.asp"
+                        >Create Child Class<small class="hide"
+                            >How to create a child class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_create_init.asp"
+                        >Create the __init__() Function<small class="hide"
+                            >How to create the __init__() function</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_super.asp"
+                        >super Function<small class="hide"
+                            >The super() function make the child class inherit
+                            the parent class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class_add_properties.asp"
+                        >Add Class Properties<small class="hide"
+                            >How to add a property to a class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_class_add_methods.asp"
+                        >Add Class Methods<small class="hide"
+                            >How to add a method to a class</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_iterators.asp"
+                        >Iterators<small class="hide"
+                            >An iterator is an object that contains a countable
+                            number of values</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_iterator_vs_iterable.asp"
+                        >Iterator vs Iterable<small class="hide"
+                            >What is the difference between an iterator and an
+                            iterable</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_iterator_loop.asp"
+                        >Loop Through an Iterator<small class="hide"
+                            >How to loop through the elements of an
+                            iterator</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_iterator_create.asp"
+                        >Create an Iterator<small class="hide"
+                            >How to create an iterator</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_iterator_stop.asp"
+                        >StopIteration<small class="hide"
+                            >How to stop an iterator</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_global_scope.asp"
+                        >Global Scope<small class="hide"
+                            >When does a variable belong to the global
+                            scope?</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_global_keyword.asp"
+                        >Global Keyword<small class="hide"
+                            >The global keyword makes the variable global</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_create.asp"
+                        >Create a Module<small class="hide"
+                            >How to create a module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_variables.asp"
+                        >Variables in Modules<small class="hide"
+                            >How to use variables in a module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_rename.asp"
+                        >Renaming a Module<small class="hide"
+                            >How to rename a module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_built-in.asp"
+                        >Built-in Modules<small class="hide"
+                            >How to import built-in modules</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_dir.asp"
+                        >Using the dir() Function<small class="hide"
+                            >List all variable names and function names in a
+                            module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_module_import_from.asp"
+                        >Import From Module<small class="hide"
+                            >How to import only parts from a module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_date.asp"
+                        >Datetime Module<small class="hide"
+                            >How to work with dates in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_date_output.asp"
+                        >Date Output<small class="hide"
+                            >How to output a date</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_date_create.asp"
+                        >Create a Date Object<small class="hide"
+                            >How to create a date object</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_date_strftime.asp"
+                        >The strftime Method<small class="hide"
+                            >How to format a date object into a readable
+                            string</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_date_format_codes.asp"
+                        >Date Format Codes<small class="hide"
+                            >The datetime module has a set of legal format
+                            codes</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_json.asp"
+                        >JSON<small class="hide"
+                            >How to work with JSON in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_json_parse.asp"
+                        >Parse JSON<small class="hide"
+                            >How to parse JSON code in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_convert_into_JSON.asp"
+                        >Convert into JSON<small class="hide"
+                            >How to convert a Python object in to JSON</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_format_json.asp"
+                        >Format JSON<small class="hide"
+                            >How to format JSON output with indentations and
+                            line breaks</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_json_sort.asp"
+                        >Sort JSON<small class="hide"
+                            >How to sort JSON</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex.asp"
+                        >RegEx Module<small class="hide"
+                            >How to import the regex module</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex_functions.asp"
+                        >RegEx Functions<small class="hide"
+                            >The re module has a set of functions</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex_metacharacters.asp"
+                        >Metacharacters in RegEx<small class="hide"
+                            >Metacharacters are characters with a special
+                            meaning</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex_sequences.asp"
+                        >RegEx Special Sequences<small class="hide"
+                            >A backslash followed by a a character has a special
+                            meaning</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex_sets.asp"
+                        >RegEx Sets<small class="hide"
+                            >A set is a set of characters inside a pair of
+                            square brackets with a special meaning</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_regex_match.asp"
+                        >RegEx Match Object<small class="hide"
+                            >The Match Object is an object containing
+                            information about the search and the result</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_pip_install.asp"
+                        >Install PIP<small class="hide"
+                            >How to install PIP</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_pip_packages.asp"
+                        >PIP Packages<small class="hide"
+                            >How to download and install a package with
+                            PIP</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_pip_packages_remove.asp"
+                        >PIP Remove Package<small class="hide"
+                            >How to remove a package with PIP</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_error_handling.asp"
+                        >Error Handling<small class="hide"
+                            >How to handle errors in Python</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_try_except.asp"
+                        >Handle Many Exceptions<small class="hide"
+                            >How to handle more than one exception</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_try_else.asp"
+                        >Try Else<small class="hide"
+                            >How to use the else keyword in a try
+                            statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_try_finally.asp"
+                        >Try Finally<small class="hide"
+                            >How to use the finally keyword in a try
+                            statement</small
+                        ></a
+                    >
+                    <a
+                        href="https://www.w3schools.com/python/gloss_python_raise.asp"
+                        >raise<small class="hide"
+                            >How to raise an exception in Python</small
+                        ></a
+                    >
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

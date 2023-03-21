@@ -1,0 +1,134 @@
+:root {
+    --color-barva-pozadi: rgb(195, 192, 198);
+    --color-barva-pozadi-odstavce: rgb(103, 103, 103);
+
+    --color-barva-textu: rgb(0, 0, 0);
+    --color-barva-textu-odstavce: rgb(10, 15, 78);
+    --color-barva-textu-funkce: rgb(12, 23, 177);
+
+    --color-barva-podsviceni: rgb(61, 61, 61);
+    --color-barva-podsviceni-textu: rgb(254, 251, 251);
+}
+/* * {
+    outline: 1px dashed green;
+} */
+body {
+    padding-top: 1rem;
+    background-color: var(--color-barva-pozadi);
+    display: flex;
+    justify-content: center;
+}
+.funkce_a_metody {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 520px);
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* velikost jednotlivich bunek */
+div.bunka {
+    width: 500px;
+    color: var(--color-barva-textu);
+}
+/* nastaveni headeru bunky */
+.nadpis_bunky {
+    border-radius: 1rem;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    color: var(--color-barva-textu-odstavce);
+    font-size: 20px;
+    padding: 10px;
+    background-color: var(--color-barva-pozadi-odstavce);
+}
+.funkce .nadpis_bunky {
+    color: var(--color-barva-textu-funkce);
+}
+/* nastaveni jednotlivich bunek funkce a metody */
+.kontainer_pro_obsah a {
+    display: flex;
+    align-items: center;
+}
+.kontainer_pro_obsah {
+    width: 100%;
+    font-size: 14px;
+}
+.bunka_funkce {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_string {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_dict {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_tuple {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_set {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_file {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_keyword {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_exceptation {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+}
+.bunka_glossary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-evenly;
+}
+/* nastaveni odkazu */
+.kontainer_pro_obsah a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.kontainer_pro_obsah small {
+    position: absolute;
+    border-radius: 1rem;
+    border: 4px solid black;
+    line-height: 2rem;
+    font-size: 2rem;
+    opacity: 90%;
+    padding: 1rem;
+    display: none;
+    background-color: var(--color-barva-podsviceni);
+    color: var(--color-barva-podsviceni-textu);
+    pointer-events: none;
+}
+.kontainer_pro_obsah:hover small:hide {
+    display: inline;
+}
+small.hide {
+    display: none;
+}
+a:hover small.hide {
+    display: inline;
+}

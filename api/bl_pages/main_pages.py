@@ -38,6 +38,10 @@ def base():
 def projekty():
     return render_template('projekty.html')
 
+@main_pages.route('/tahak')
+def tahak():
+    return render_template('tahak_na_python.html')
+
 @main_pages.route('/Login', methods=['GET', 'POST'])
 def login():
     form_login = LoginForm()
