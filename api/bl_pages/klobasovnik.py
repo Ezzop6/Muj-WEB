@@ -19,9 +19,10 @@ db = DbReceptar()
 
 klobasovnik = Blueprint('klobasovnik', __name__)
 
-@role_required('admin')
-@login_required
+
 @klobasovnik.route('/', methods=['GET', 'POST'])
+@login_required
+@role_required('user')
 def main_page():
     print(current_user)
     form = NewRecept()
@@ -32,17 +33,19 @@ def main_page():
                             form=form,
                             )
     
-@role_required('admin')
-@login_required
+
 @klobasovnik.route('/new_recept', methods=['GET', 'POST'])
+@login_required
+@role_required('user')
 def new_recept():
 
 
     return render_template('klobasovnik/new_recept.html',
                             )
     
-@role_required('admin')
-@login_required
+
 @klobasovnik.route('/about_app', methods=['GET', 'POST'])
+@login_required
+@role_required('user')
 def about_app():
     return render_template('klobasovnik/about_app.html')

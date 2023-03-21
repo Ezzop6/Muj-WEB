@@ -19,13 +19,13 @@ from datetime import date
 
 kalendar = Blueprint('kalendar', __name__)
 
-@login_required
 @kalendar.route('/about_app', methods=['GET', 'POST'])
+@login_required
 def about_app():
     return render_template('kalendar/about_app.html')
 
-@login_required
 @kalendar.route('/', methods=['GET', 'POST'])
+@login_required
 def main_page():
     form = Kalendar()
 
@@ -58,8 +58,8 @@ def main_page():
                         today=today
                         )
     
-@login_required
 @kalendar.route('/<int:year>/<int:month>/<int:day>', methods=['GET', 'POST'])
+@login_required
 def day_page(year, month, day):
     day_to_edit = date(year, month, day)
     print(day_to_edit)
