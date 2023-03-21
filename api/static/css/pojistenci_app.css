@@ -1,0 +1,339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px dashed greenyellow; */
+    font-family: 'Roboto', sans-serif;
+}
+:root{
+    --color-primary-color: #0B489A;
+    --color-secondary-color: #5696C3;
+    --color-button-text-color: #171616;
+    --color-header: #042138;
+    --color-text-logo: #b8c5d0;
+    --color-text: #f6f6f6;
+    --color-produkt-background: #c0d2e0;
+    --color-button-background: #5696C3;
+    --color-background: #b8c5d0;
+    --color-btn-edit: #0e870c;
+    --color-btn-delete: #a30404;
+    --color-shadow: #171616;
+    --table-head: #555;
+    --table-row-hover: #99999979;
+    --table-row-nth-child: #a1b9cd;
+    
+    
+
+}
+
+body {
+    background-color: var(--color-background);
+
+}
+
+
+/* Header */
+.container_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+header {
+    background: linear-gradient(180deg, var(--color-header) 0%, var(--color-header) 70%, var(--color-background) 100%);
+}
+
+.menu {
+    display: flex;
+    margin-bottom: 2rem;
+}
+/* menu button */
+.menu_item{
+    list-style: none;
+
+}
+.menu_item a {
+    text-decoration: none;
+    color: var(--color-text-logo);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0 10px;
+}
+
+.btn {
+    position: relative;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6em;
+    transition: all .2s;
+    border: none;
+    font-weight: 500;
+    color: black;
+    background-color: var(--color-button-background);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn::after {
+    background-color: var(--color-button-background);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+/* logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+.logo_img {
+    height: 100px;
+}
+
+.nazev_pojistovny{
+    display: flex;
+    align-items: center;
+}
+.nazev_pojistovny h1 {
+    color: var(--color-text-logo);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-left: 10px;
+}
+.nazev_pojistovny span {
+    color: var(--color-text-logo);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+/* footer */
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(0deg, var(--color-header) 0%, var(--color-header) 90%, var(--color-background) 100%);
+}
+.footer_info {
+    width: 70%;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+}
+.about_as {
+    text-align: center;
+    color: var(--color-text);
+}
+
+.kontakt_info {
+    text-align: center;
+    color: var(--color-text);
+}
+.kontakt_info a {
+    margin-top: 15px;
+    text-decoration: none;
+}
+.social_button img {
+    height: 40px;
+}
+.social_button {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.follow h2 { 
+    text-align: center;
+    color: var(--color-text);
+    padding-bottom: 30px;
+}
+/* admin edit tab section */
+.produkt_wraper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.produkt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    padding: 30px;
+    background-color: var(--color-background);
+}
+
+
+.green_btn,
+.green_btn::after  {
+    background-color: var(--color-btn-edit);
+}
+
+.red_btn,
+.red_btn::after {
+    background-color: var(--color-btn-delete);
+}
+
+table {
+
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 5px 0px;
+}
+
+th {
+    background-color: var(--table-head);
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--table-row-nth-child);
+}
+
+tbody tr:hover {
+    background-color: var(--table-row-hover);
+}
+
+td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    gap: 10px;
+}
+thead th {
+    padding: 10px 0px;
+}
+
+
+.center {
+    text-align: center;
+}
+
+/* main page produkts section */
+
+.produkt_section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.product {
+    width: 70%;
+    padding: 30px;
+    background-color: var(--color-produkt-background);
+    margin: 3rem 0;
+    border-radius: 1rem;
+    box-shadow: var(--color-shadow) 0px 0px 10px;
+    display: flex;
+    flex-direction: row;
+
+}
+.product_img {
+    max-height: 300px;
+    border-radius: 1rem;
+    box-shadow: var(--color-shadow) 0px 0px 10px;
+}
+.product .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product .right h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin: 0 0 40px 0;
+}
+
+.product .right p {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 40px;
+    margin: 0 0 40px 0;
+}
+
+.product .right a {
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+}
+
+/* form design */
+.input-group {
+    position: relative;
+}
+
+.input {
+    border: solid 1.5px var(--color-shadow);
+    border-radius: 1rem;
+    background: none;
+    padding: 1rem;
+    font-size: 1rem;
+    color: var(--color-primary-color);
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.user-label {
+    position: absolute;
+    left: 15px;
+    color: var(--color-primary-color);
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.input:focus, input:valid {
+    outline: none;
+    border: 1.5px solid var(--color-primary-color);
+}
+
+.input:focus ~ label, input:valid ~ label {
+    transform: translateY(-50%) scale(0.8);
+    background-color: var(--color-background);
+    padding: 0 .2em;
+    color: var(--color-primary-color);
+}
+

@@ -8,7 +8,7 @@ if debug:
     from my_packages._tools import *
     from my_packages.vtipky import error_page_joke
     from bl_pages.main_pages import main_pages
-    from bl_pages.pojistenci_app_pages import pojistenci_app_pages
+    from bl_pages.pojistenci_app_pages import pojistenci_app
     from bl_pages.kalendar import kalendar
     from bl_pages.klobasovnik import klobasovnik
     from database import DbUsersMain
@@ -17,7 +17,7 @@ else:
     from api.my_packages._tools import *
     from api.my_packages.vtipky import error_page_joke
     from api.bl_pages.main_pages import main_pages
-    from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
+    from api.bl_pages.pojistenci_app_pages import pojistenci_app
     from api.bl_pages.kalendar import kalendar
     from api.bl_pages.klobasovnik import klobasovnik
     from api.database import DbUsersMain
@@ -55,7 +55,7 @@ Session(app)
 
 
 app.register_blueprint(main_pages, url_prefix='/')
-app.register_blueprint(pojistenci_app_pages, url_prefix='/pojistenci_app')
+app.register_blueprint(pojistenci_app, url_prefix='/pojistenci_app')
 app.register_blueprint(kalendar, url_prefix='/kalendar')
 app.register_blueprint(klobasovnik, url_prefix='/klobasovnik')
 

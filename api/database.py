@@ -1,5 +1,16 @@
 from dotenv import load_dotenv, find_dotenv
 import os
+
+load_dotenv(find_dotenv())
+debug = os.environ.get("DEBUG") == "True"
+
+if debug:
+    from my_packages._tools import *
+else:
+    from api.my_packages._tools import *
+    
+from dotenv import load_dotenv, find_dotenv
+import os
 from pymongo import MongoClient 
 from bson.objectid import ObjectId
 from cryptography.fernet import Fernet

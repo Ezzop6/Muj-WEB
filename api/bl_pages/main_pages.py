@@ -42,6 +42,10 @@ def projekty():
 def tahak():
     return render_template('tahak_na_python.html')
 
+@main_pages.route('/debug')
+def debug():
+    return current_user
+
 @main_pages.route('/Login', methods=['GET', 'POST'])
 def login():
     form_login = LoginForm()

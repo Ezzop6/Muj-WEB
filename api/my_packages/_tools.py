@@ -1,9 +1,8 @@
 from dotenv import load_dotenv, find_dotenv
 import os
+
 load_dotenv(find_dotenv())
-debug = os.environ.get("DEBUG")
-if debug == "True": debug = True
-else: debug = False
+debug = os.environ.get("DEBUG") == "True"
 
 if debug:
     from database import DbUsersMain

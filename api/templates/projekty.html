@@ -4,8 +4,13 @@
 
 {% block content %}
     <a href="{{url_for( 'kalendar.main_page' ) }}">kalendar</a>
-    <a href="{{url_for( 'klobasovnik.main_page' ) }}">klobasovnik</a>
     <a href="{{url_for( 'main_pages.tahak' ) }}">Tahak na python</a>
+    {% if debug %}
+    <a href="{{url_for( 'pojistenci_app.index_page' ) }}">Pojistenci app</a>
+
+    <a href="{{url_for( 'klobasovnik.main_page' ) }}">klobasovnik</a>
+    {% endif %}
+
 
 
 {% endblock %}

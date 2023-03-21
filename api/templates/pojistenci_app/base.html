@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hlavni strana">
     <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/normalise.css' ) }}">
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/style.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/pojistenci_app.css' ) }}">
     <link rel="icon" type="image/png" href="{{ url_for( 'static', filename='../static/img/logo.png' ) }}">
     <title>{% block title %} Base html {% endblock %}</title>
 </head>
@@ -25,23 +25,23 @@
             <nav>
                 <ul class="menu">
                     {% if current_user.is_authenticated and current_user.role == "admin" %}
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.admin_page') }}">Administrace</a></li>
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.edit_products_page') }}">Správa produktů</a></li>
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.edit_users_page') }}">Správa uživatelů</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.admin_page') }}">Administrace</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.edit_products_page') }}">Správa produktů</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.edit_users_page') }}">Správa uživatelů</a></li>
 
                     {% endif %}
-                    <li class="menu_item"><a class="btn" href="/pojistenci_app_pages.zatim jsem neresil">O nás</a></li>
-                    <li class="menu_item"><a class="btn" href="/pojistenci_app_pages.zatim jsem neresil">Kontakt</a></li>
+                    <li class="menu_item"><a class="btn" href="#">O nás</a></li>
+                    <li class="menu_item"><a class="btn" href="#">Kontakt</a></li>
                     {% if not current_user.is_authenticated %}
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.login_page') }}">Přihlášení</a></li>
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.register_page') }}">Registrace</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.login_page') }}">Přihlášení</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.register_page') }}">Registrace</a></li>
                     {% endif %}
                     {% if current_user.is_authenticated %}
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.logout') }}">Odhlášení</a></li>
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.user_page',login = current_user.login) }}">Můj účet</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.logout') }}">Odhlášení</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.user_page',login = current_user.login) }}">Můj účet</a></li>
                     {% endif %}
                     <!--TODO:remove this after development-->
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app_pages.login_test_user') }}">login_test_user</a></li>
+                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.login_test_user') }}">login_test_user</a></li>
                 </ul>
             </nav>
         </div>
