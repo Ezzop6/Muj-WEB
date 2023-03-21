@@ -1,0 +1,14 @@
+{% extends 'klobasovnik/base.html'%}
+    
+{% block title %} klobasovnik {% endblock %}
+    
+{% block content %}
+
+<section>
+    <h2>pridat recept</h2>
+    {{ form.csrf_token }}
+    {{ form.nazev_receptu }}
+    {{ form.submit }}
+</section>
+    
+    {% endblock %}

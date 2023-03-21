@@ -119,3 +119,12 @@ class DbKalendar(DbUsersMain):
         '''Creates user kalendar in database'''
         self.shift.insert_one({"_id":ObjectId(user_id)})
         
+class DbReceptar(DbUsersMain):
+    def __init__(self):
+        super().__init__()
+        self.receptar = self.client.main.receptar
+        
+    def create_new_recept(self, user_id, name):
+        '''Creates new recept in database'''
+        self.receptar.insert_one({"_id":ObjectId(user_id), "name":name})
+        

@@ -10,6 +10,7 @@ if debug:
     from bl_pages.main_pages import main_pages
     from bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from bl_pages.kalendar import kalendar
+    from bl_pages.klobasovnik import klobasovnik
     from database import DbUsersMain
     
 else:
@@ -18,12 +19,13 @@ else:
     from api.bl_pages.main_pages import main_pages
     from api.bl_pages.pojistenci_app_pages import pojistenci_app_pages
     from api.bl_pages.kalendar import kalendar
+    from api.bl_pages.klobasovnik import klobasovnik
     from api.database import DbUsersMain
     
 
 from flask_session import Session
 from flask import Flask, render_template, redirect, url_for, g, session
-from flask_login import LoginManager, UserMixin, login_user, logout_user
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 from flask_wtf.csrf import CSRFProtect
 from redis import Redis
 import os
@@ -50,12 +52,14 @@ app.config['SECRET_KEY'] = os.environ.get("APP_SECRET_KEY")
 
 Session(app)
 
-login_manager.init_app(app)
 
 
 app.register_blueprint(main_pages, url_prefix='/')
 app.register_blueprint(pojistenci_app_pages, url_prefix='/pojistenci_app')
 app.register_blueprint(kalendar, url_prefix='/kalendar')
+app.register_blueprint(klobasovnik, url_prefix='/klobasovnik')
+
+login_manager.init_app(app)
 
 @app.before_request
 def before_request():
@@ -82,31 +86,19 @@ def access_denied(error):
         return render_template('403.html', error = error, message = message)
     elif error_code == '404':
         return render_template('404.html', error = error, message = message)
-    
+
 # for debuging
 if debug:
     @app.route('/login_test_user')
     def login_test_user():
         '''Login test user'''
-        current_user = User("6411f76b45aae9e67c066141")
+        current_user = User("641832713c6a0d4ae68ceaca")
         login_user(current_user)
         return redirect(url_for('main_pages.main_page'))
-    
-@app.route('/logout_test_user')
-def logout_test_user():
-    '''Logout test user'''
-    logout_user()
-    return redirect(url_for('main_pages.main_page'))
 
 
 
 
-class User(UserMixin):
-    def __init__(self, id):
-        self.id = id
-        self.role = db.get_user_role(self.id)
-        self.login = db.get_user_login(self.id)
-        
 
 
 
@@ -118,7 +110,4 @@ if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     app.jinja_env.globals.update(get_random_produkt_img = get_random_produkt_img)
     app.jinja_env.globals.update(debug = debug)
-    app.jinja_env.globals.update(app = app)
-    
-
     app.run(host=host, port=port)

@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/normalise.css' ) }}">
     <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/main_page_style.css' ) }}">
     
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/kalendar.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='../static/css/klobasovnik.css' ) }}">
     <link rel="icon" type="image/png" href="{{ url_for( 'static', filename='../static/img/logo.png' ) }}">
-    <title>{% block title %} Base html smennost app {% endblock %}</title>
+    <title>{% block title %} Klobasovnik{% endblock %}</title>
 </head>
 <body>
 
@@ -32,7 +32,7 @@
                 </div>
             </a>
             </li>
-            <li><a href="{{ url_for( 'kalendar.about_app' ) }}">
+            <li><a href="{{ url_for( 'klobasovnik.about_app' ) }}">
                 <div class="buttons">
                     <button class="btn"><span></span>
                         <p data-start="good luck!" data-text="Info jak to pouzivat" data-title="O aplikaci"></p>

@@ -82,7 +82,7 @@
                 {% endif %}
                 
                 {% if current_user.is_authenticated %}
-                    <p><a href="{{ url_for( 'logout_test_user' ) }}">Logout</a></p>
+                    <p><a href="{{ url_for( 'main_pages.logout' ) }}">Logout</a></p>
                     {{ current_user.id }}
                 {% endif %}
                 <p>prihlasen {{ current_user.is_authenticated }} </p>
