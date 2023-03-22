@@ -10,7 +10,7 @@ if debug:
     from my_packages._tools import *
     from database import  DbPojistenciProducts, DbUsersPojistenciProducts
 else:
-    # from api.forms.forms_pojistenci_app import *
+    from api.forms.forms_pojistenci_app import *
     from api.forms.forms import *
     from api.my_packages._tools import *
     from api.database import  DbPojistenciProducts, DbUsersPojistenciProducts
