@@ -92,7 +92,7 @@ if debug:
     @app.route('/login_test_user')
     def login_test_user():
         '''Login test user'''
-        current_user = User("641832713c6a0d4ae68ceaca")
+        current_user = User("641aafa9285f4a3f68fa3f3e")
         login_user(current_user)
         return redirect(url_for('main_pages.main_page'))
 

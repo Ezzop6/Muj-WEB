@@ -6,8 +6,10 @@ debug = os.environ.get("DEBUG") == "True"
 
 if debug:
     from my_packages._tools import *
+    from my_packages.fake_users.user_creator import RandomUser
 else:
     from api.my_packages._tools import *
+    from api.my_packages.fake_users.user_creator import RandomUser
     
 from dotenv import load_dotenv, find_dotenv
 import os
@@ -39,7 +41,7 @@ class DbUsersMain(DbConnection):
             self.user_db = self.client.main.users
             self.user_key = self.client.main.keys
         
-        
+    # function for login and register
     def create_user(self, user_login, user_password):
         '''Creates user in database if user does not exist'''
         if self.check_if_user_exists(user_login):
@@ -86,6 +88,11 @@ class DbUsersMain(DbConnection):
         '''Checks if user exists in database'''
         if self.user_db.count_documents({"login":user_login}) == 0:
             return True
+        
+    def delete_user(self, user_id):
+        '''Deletes user from database'''
+        self.user_db.delete_one({"_id":ObjectId(user_id)})
+        self.user_key.delete_one({"_id":ObjectId(user_id)})
     
     def current_time(self):
         '''Returns current time'''
@@ -145,8 +152,7 @@ class DbUsersMain(DbConnection):
     def update_user_data(self, user_id, update, update_value):
         '''Updates user data'''
         self.user_db.update_one({"_id": ObjectId(user_id)}, {"$set": {update: update_value}})
-        # cprint(f"User {user_id} updated with {update} = {update_value}")
-        
+    
     # function for adding data to database
     def set_user_name(self, user_id, name):
         '''Sets user name'''
@@ -159,6 +165,31 @@ class DbUsersMain(DbConnection):
     def set_user_birthdate(self, user_id, birthdate):
         '''Sets user birthdate'''
         self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"birthdate":birthdate.strftime('%Y.%m.%d')}})
+        
+    # functions for sorting users and finding users
+    def sort_users_by(self, sort_direction='asc', sort_by='login'):
+        '''Returns a list of users sorted by the given key and direction'''
+        if sort_direction == 'asc':
+            users = self.user_db.find().sort(sort_by, ASCENDING)
+        else:
+            users = self.user_db.find().sort(sort_by, DESCENDING)
+        return users
+    
+    def find_users_by(self, search_by, search_for):
+            '''Returns a list of users found by the given key and value'''
+            regex = re.compile(search_for, re.IGNORECASE)  # Vytvoření regulárního výrazu pro částečné shodování
+            query = {search_by: regex}  # Vytvoření dotazu s použitím regulárního výrazu
+            users = self.user_db.find(query)
+            return users
+    
+    # additional functions
+    def create_fake_users(self, number_of_users = 1):
+        '''Creates fake users'''
+        for _ in range(number_of_users):
+            fake_users = RandomUser().new_user()
+            if self.check_if_user_exists(fake_users["login"]):
+                self.user_db.insert_one(fake_users)
+                print(f"User {fake_users} added")
     
 class DbKalendar(DbUsersMain):
     def __init__(self):

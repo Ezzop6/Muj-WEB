@@ -200,8 +200,8 @@ def delete_user(id):
     if form.validate_on_submit():
         if form.yes.data:
             db_user.delete_user(id)
-            return redirect(url_for('edit_users_page'))
-        else: return redirect(url_for('edit_users_page'))
+            return redirect(url_for('pojistenci_app.edit_users_page'))
+        else: return redirect(url_for('pojistenci_app.edit_users_page'))
     return render_template('pojistenci_app/delete_product.html', product = user , form = form)
 
 @pojistenci_app.route('/base', methods=['GET', 'POST'])
@@ -239,17 +239,4 @@ def delete_product(id):
             return redirect(url_for('pojistenci_app.edit_products_page'))
         else: return redirect(url_for('pojistenci_app.edit_products_page'))
     return render_template('pojistenci_app/delete_product.html', product = product , form = form)
-
-
-# TODO remove this after development
-@pojistenci_app.route('/login_test_user', methods=['GET', 'POST'])
-def login_test_user():
-    '''only for testing delete it after development'''
-    log_this_account = 'user'
-    if log_this_account == 'user':
-        current_user = User("63fdba6ee32d2888e837368a")#test user
-    if log_this_account == 'admin':
-        current_user = User("63fcd1d350ed7141f41f1a17")#admin
-    login_user(current_user)
-    return redirect(url_for('pojistenci_app.index_page'))
 

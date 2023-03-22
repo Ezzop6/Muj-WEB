@@ -21,11 +21,6 @@ db = DbUsersMain()
 
 def cprint(text, color="light_green"):
     print(colored(text, color))
-    
-def random_secret_key():
-    randon_secret_string = PasswordGenerator(10,10,10).generate_password()
-    return randon_secret_string
-
 
 def role_required(role):
     '''Vyžaduje přihlášení s určeným právem'''

@@ -42,8 +42,6 @@
                     <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.logout') }}">Odhlášení</a></li>
                     <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.user_page',login = current_user.login) }}">Můj účet</a></li>
                     {% endif %}
-                    <!--TODO:remove this after development-->
-                    <li class="menu_item"><a class="btn" href="{{ url_for('pojistenci_app.login_test_user') }}">login_test_user</a></li>
                 </ul>
             </nav>
         </div>
@@ -84,4 +82,3 @@
     </footer>
 </body>
 </html>
-
