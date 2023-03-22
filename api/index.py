@@ -45,7 +45,6 @@ csrf = CSRFProtect(app)
 
 app.config['PERMANENT_SESSION_LIFETIME'] = 7200 # time to logout user
 app.config['WTF_CSRF_TIME_LIMIT'] = 3600
-app.config['REMEMBER_COOKIE_DURATION'] = 1
 app.config['SESSION_TYPE'] = 'redis'
 app.config['SESSION_REDIS'] = redis_client
 app.config['SESSION_USE_SIGNER'] = True

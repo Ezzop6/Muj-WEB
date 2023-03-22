@@ -188,10 +188,7 @@ class DbReceptar(DbUsersMain):
 class DbPojistenciProducts(DbUsersMain):
     def __init__(self):
         super().__init__()
-        if debug:
-            self.db = self.client.test.products
-        else:
-            self.db = self.client.pojistenci_uzivatele.products
+        self.db = self.client.pojistenci_uzivatele.products
         
     def add_product(self, product):
         '''Adds product to database'''

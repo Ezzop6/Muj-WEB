@@ -137,7 +137,7 @@ def edit_products_page():
         new_produkt = {"imgs_path":new_produkt.imgs_path.data,"name": new_produkt.name.data, "price": new_produkt.price_per_month.data, "description": new_produkt.description.data}
         db_product.add_product(new_produkt)
         
-        return redirect(url_for('edit_products_page'))
+        return redirect(url_for('pojistenci_app.edit_products_page'))
     return render_template('pojistenci_app/all_products.html', new_produkt = new_produkt, products = products)
 
 @pojistenci_app.route('/admin/edit_user', methods=['GET', 'POST'])
@@ -223,7 +223,7 @@ def edit_product(id):
     if edited_product.validate_on_submit():
         db_product.add_product_imgs_path(id, edited_product.imgs_path.data)
         db_product.update_product(id, edited_product.description.data, edited_product.price_per_month.data)
-        return redirect(url_for('edit_products_page')) 
+        return redirect(url_for('pojistenci_app.edit_products_page')) 
     return render_template('pojistenci_app/edit_product.html', product = product, form = edited_product)
 
 @pojistenci_app.route('/admin/delete/<id>', methods=['GET', 'POST'])
@@ -236,8 +236,8 @@ def delete_product(id):
     if form.validate_on_submit():
         if form.yes.data == True:
             db_product.delete_product(id)
-            return redirect(url_for('edit_products_page'))
-        else: return redirect(url_for('edit_products_page'))
+            return redirect(url_for('pojistenci_app.edit_products_page'))
+        else: return redirect(url_for('pojistenci_app.edit_products_page'))
     return render_template('pojistenci_app/delete_product.html', product = product , form = form)
 
 

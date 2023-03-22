@@ -249,17 +249,3 @@ class FindUserForm(FlaskForm):
         ("city", "města"), ("street", "ulice"), ("street_number", "čísla popisného"), ("zip_code", "PSČ"), ("email", "email"),
         ("birth_date", "datum narození")])
     search = StringField("Hledat", widget = widgets.Input(input_type = "text"))
-'''
-stary hesla
-
-testuser 
-
-AHOJ123!@#qwe
-Z0FBQUFBQmtHcS1wNmRWX1VheGEwbFdLbDZIOUdnaC1mSWQ4UkI2Y01TdW5XejlMVkVPbUZ6TkpXMFdqNy14TXhaRTJnV0VyYVk2
-Z0FBQUFBQmtHckVqYzdzNU5fZ0Z0ZTg5dC1XRUt1NEZYbmxDWVlXbmg5TzRfQS1JVTVSRi05ZXlWVXoxamFtbG1TZlJqajB0TmVE
-novi hesla
-dsaASD23@#dsaASD23@#
-
-
-
-'''
