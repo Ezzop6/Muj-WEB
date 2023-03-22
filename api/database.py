@@ -32,8 +32,12 @@ class DbConnection:
 class DbUsersMain(DbConnection):
     def __init__(self):
         super().__init__()
-        self.user_db = self.client.main.users
-        self.user_key = self.client.main.keys
+        if debug:
+            self.user_db = self.client.test.users
+            self.user_key = self.client.test.keys
+        else:
+            self.user_db = self.client.main.users
+            self.user_key = self.client.main.keys
         
         
     def create_user(self, user_login, user_password):
@@ -66,6 +70,17 @@ class DbUsersMain(DbConnection):
                 return False
         else:
             return False
+    
+    def change_password(self, user_id, new_password):
+        '''Changes user password'''
+        user_key = self.get_user_key(user_id)
+        print("user key =",user_key)
+        print("new password =",new_password)
+        
+        encripted_password = self.encript_data(new_password, user_key)
+        print("encripted password =",encripted_password)
+        self.user_db.update_one({"_id": ObjectId(user_id)}, {"$set":{"password":encripted_password}})
+        print("Password changed")
     
     def check_if_user_exists(self, user_login):
         '''Checks if user exists in database'''
@@ -100,6 +115,11 @@ class DbUsersMain(DbConnection):
         '''Returns user id from database'''
         return self.user_db.find_one({"login":user_login})["_id"]
     
+    def get_user_data(self, user_id):
+        '''Returns user'''
+        user = self.user_db.find_one({"_id": ObjectId(user_id)})
+        return user
+    
     def get_user_key(self, user_id):
         '''Returns user key from database'''
         return self.user_key.find_one({"_id":ObjectId(user_id)})["key"]
@@ -121,11 +141,32 @@ class DbUsersMain(DbConnection):
         '''Updates user last login time'''
         last_login = self.current_time()
         self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"last_login":last_login}})
+        
+    def update_user_data(self, user_id, update, update_value):
+        '''Updates user data'''
+        self.user_db.update_one({"_id": ObjectId(user_id)}, {"$set": {update: update_value}})
+        # cprint(f"User {user_id} updated with {update} = {update_value}")
+        
+    # function for adding data to database
+    def set_user_name(self, user_id, name):
+        '''Sets user name'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"name":name}})
+    
+    def set_user_surname(self, user_id, surname):
+        '''Sets user surname'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"surname":surname}})
+        
+    def set_user_birthdate(self, user_id, birthdate):
+        '''Sets user birthdate'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"birthdate":birthdate.strftime('%Y.%m.%d')}})
     
 class DbKalendar(DbUsersMain):
     def __init__(self):
         super().__init__()
-        self.shift = self.client.main.shift_calendar
+        if debug:
+            self.shift = self.client.test.shift_calendar
+        else:
+            self.shift = self.client.main.shift_calendar
         
     def create_user_kalendar(self, user_id):
         '''Creates user kalendar in database'''
@@ -134,7 +175,10 @@ class DbKalendar(DbUsersMain):
 class DbReceptar(DbUsersMain):
     def __init__(self):
         super().__init__()
-        self.receptar = self.client.main.receptar
+        if debug:
+            self.receptar = self.client.test.receptar
+        else:
+            self.receptar = self.client.main.receptar
         
     def create_new_recept(self, user_id, name):
         '''Creates new recept in database'''
@@ -144,7 +188,10 @@ class DbReceptar(DbUsersMain):
 class DbPojistenciProducts(DbUsersMain):
     def __init__(self):
         super().__init__()
-        self.db = self.client.pojistenci_uzivatele.products
+        if debug:
+            self.db = self.client.test.products
+        else:
+            self.db = self.client.pojistenci_uzivatele.products
         
     def add_product(self, product):
         '''Adds product to database'''
@@ -183,4 +230,7 @@ class DbPojistenciProducts(DbUsersMain):
 class DbUsersPojistenciProducts(DbUsersMain):
     def __init__(self):
         super().__init__()
-        self.db = self.client.pojistenci_uzivatele.users_product
+        if debug:
+            self.db = self.client.test.users_product
+        else:
+            self.db = self.client.pojistenci_uzivatele.users_product

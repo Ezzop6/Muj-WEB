@@ -6,10 +6,12 @@ debug = os.environ.get("DEBUG") == "True"
 
 if debug:
     from forms.forms_pojistenci_app import *
+    from forms.forms import *
     from my_packages._tools import *
     from database import  DbPojistenciProducts, DbUsersPojistenciProducts
 else:
-    from api.forms.forms_pojistenci_app import *
+    # from api.forms.forms_pojistenci_app import *
+    from api.forms.forms import *
     from api.my_packages._tools import *
     from api.database import  DbPojistenciProducts, DbUsersPojistenciProducts
 
@@ -22,8 +24,7 @@ from flask_login import current_user, login_required, login_user, logout_user
 
 pojistenci_app = Blueprint('pojistenci_app', __name__)
 
-
-db_user = DbUsers()
+db_user = DbUsersMain()
 db_product = DbPojistenciProducts()
 db_up = DbUsersPojistenciProducts()
 
@@ -32,7 +33,7 @@ db_up = DbUsersPojistenciProducts()
 @pojistenci_app.route('/logout', methods=['GET', 'POST'])
 def logout():
     logout_user()
-    return redirect(url_for('index_page'))
+    return redirect(url_for('main_pages.main_page'))
 
 @pojistenci_app.route('/')
 def index_page():
@@ -44,10 +45,12 @@ def login_page():
     '''Login page'''
     form_login = LoginForm()
     if form_login.validate_on_submit():
-        user_id = db_user.get_user_id(form_login.login.data)
-        current_user = User(user_id)
-        login_user(current_user)
-        return render_template('pojistenci_app/index.html')
+        if db.login_user(form_login.login.data, form_login.password.data):
+            user_id = db.get_user_id(form_login.login.data)
+            current_user = User(user_id)
+            login_user(current_user)
+            # Ulož CSRF token do relace
+            return render_template('pojistenci_app/index.html')
     return render_template('pojistenci_app/login.html', form_login = form_login)
 
 @pojistenci_app.route('/register', methods=['GET', 'POST'])
@@ -55,11 +58,11 @@ def register_page():
     '''Register page'''
     form_register = RegisterForm()
     if form_register.validate_on_submit():
-        db_user.add_user(form_register.login.data, form_register.password.data)
-        user_id = db_user.get_user_id(form_register.login.data)
-        current_user = User(user_id)
-        login_user(current_user)
-        return redirect(url_for('complete_registration', login = form_register.login.data))
+        if db.create_user(form_register.login.data, form_register.password.data):
+            user_id = db.get_user_id(form_register.login.data)
+            current_user = User(user_id)
+            login_user(current_user)
+            return redirect(url_for('pojistenci_app.complete_registration', login = form_register.login.data))
     return render_template('pojistenci_app/register.html',
                         form_register = form_register)
 
@@ -71,13 +74,12 @@ def complete_registration(login):
     form_complete_register = CompleteRegisterForm()
     if form_complete_register.validate_on_submit():
         user_id = db_user.get_user_id(login)
-        db_user.update_user_name(user_id, form_complete_register.name.data)
-        db_user.update_user_surname(user_id, form_complete_register.surname.data)
-        db_user.update_user_birthdate(user_id, form_complete_register.birt_date.data)
-        return redirect(url_for('index_page'))
+        db_user.set_user_name(user_id, form_complete_register.name.data)
+        db_user.set_user_surname(user_id, form_complete_register.surname.data)
+        db_user.set_user_birthdate(user_id, form_complete_register.birt_date.data)
+        return redirect(url_for('pojistenci_app.index_page'))
     return render_template('pojistenci_app/complete_registration.html', 
                         login = login, 
-                        user = db_user.get_user_data(current_user.id), 
                         form_complete_register = form_complete_register)
 
 @pojistenci_app.route('/user/<login>', methods=['GET', 'POST'])
@@ -96,19 +98,20 @@ def user_page(login):
                     continue
                 if data != "":
                     db_user.update_user_data(current_user.id, form, data)
-            return redirect(url_for('user_page', login=login))
+            return redirect(url_for('pojistenci_app.user_page', login=login))
 
     if request.method == 'POST' and 'change_password_form' in request.form:
         if change_password_form.validate_on_submit():
-            db_user.update_user_data(current_user.id, "password", change_password_form.password.data)
+            db_user.change_password(current_user.id, change_password_form.password.data)
+            return redirect(url_for('pojistenci_app.user_page', login=login))
 
     return render_template('pojistenci_app/user.html', 
-                        user = db_user.get_user_data(current_user.id),
                         user_form = user_form,
                         role_form = role_form,
+                        user = db_user.get_user_data(current_user.id),
                         change_password_form = change_password_form)
 
-
+# TODO opraveno az sem
 @pojistenci_app.route('/admin', methods=['GET', 'POST'])
 @login_required
 @role_required("admin")

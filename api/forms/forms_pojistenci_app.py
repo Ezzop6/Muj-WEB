@@ -5,16 +5,15 @@ load_dotenv(find_dotenv())
 debug = os.environ.get("DEBUG") == "True"
 
 if debug:
-    from database_pojistenci import DbUsers, DbProducts
+    from database_pojistenci import DbProducts
 else:
-    from api.database_pojistenci import DbUsers, DbProducts
+    from api.database_pojistenci import DbProducts
 
 from flask_wtf import FlaskForm
 from wtforms import  TextAreaField, IntegerField, SelectField ,widgets, StringField, PasswordField, SubmitField, DateField, validators,ValidationError
 import datetime
 
 
-db_user = DbUsers()
 db_product = DbProducts()
 
 forbidden_words = ["admin","root","administrator"] # forbidden words in name, surname and login
@@ -150,45 +149,7 @@ class CompleteRegisterForm(FlaskForm):
         if birt_date > datetime.date.today():
             raise ValidationError(f"Sorry tahle aplikace nepodporuje cesty časem: {birt_date}")
 
-class RegisterForm(FlaskForm):
-    login = StringField("Login", widget=widgets.Input(input_type = "text"),
-        validators=[validators.DataRequired(message="Musíte zadat login"),
-                    validators.Length(min=3, max=20, message="Login musí mít 3 až 20 znaků")])
-    password = PasswordField("Heslo", widget=widgets.Input(input_type = "password"),
-        validators = [validators.DataRequired(message="Musíte zadat heslo")])
-    password2 = PasswordField("Zopakujte heslo", widget = widgets.Input(input_type = "password"),
-        validators=[validators.DataRequired(message="Musíte zadat heslo")])
-    submit = SubmitField("Registrovat se")
-    
-    def validate_login(self, login):
-        login = login.data
-        if login in forbidden_words:
-            raise ValidationError(f"nesmíš použít tento login: {login}")
-        if db_user.check_if_login_exists(login) != None:
-            raise ValidationError(f"Uživatel s loginem {login} již existuje")
-    
-    def validate_password(self, password):
-        CustomTest.validate_password(password, self.password2.data)
-        
-class LoginForm(FlaskForm):
-    login = StringField("Login", widget = widgets.Input(input_type = "text"),
-        validators=[validators.DataRequired(message="Musíte zadat login"),
-                    validators.Length(min=3, max=20, message="Login musí mít 3 až 20 znaků")])
-    password = PasswordField("Heslo", widget = widgets.Input(input_type = "password"),
-        validators=[validators.DataRequired(message="Musíte zadat heslo"),
-                    validators.Length(min=4, message="Heslo musí mít minimálně 4 znaků")])
-    submit = SubmitField("Přihlásit se")
-    
-    def validate_login(self, login):
-        login = login.data
-        if not db_user.check_if_login_exists(login):
-            raise ValidationError(f"Login: {login} neexistuje")
-        
-    def validate_password(self, password):
-        login = self.login.data
-        password = password.data
-        if not db_user.check_if_password_is_correct(login, password):
-            raise ValidationError("Špatné jméno nebo heslo")
+
 
 class EditProductsForm(FlaskForm):
     name = StringField("Název", widget = widgets.Input(input_type = "text"),
@@ -288,3 +249,17 @@ class FindUserForm(FlaskForm):
         ("city", "města"), ("street", "ulice"), ("street_number", "čísla popisného"), ("zip_code", "PSČ"), ("email", "email"),
         ("birth_date", "datum narození")])
     search = StringField("Hledat", widget = widgets.Input(input_type = "text"))
+'''
+stary hesla
+
+testuser 
+
+AHOJ123!@#qwe
+Z0FBQUFBQmtHcS1wNmRWX1VheGEwbFdLbDZIOUdnaC1mSWQ4UkI2Y01TdW5XejlMVkVPbUZ6TkpXMFdqNy14TXhaRTJnV0VyYVk2
+Z0FBQUFBQmtHckVqYzdzNU5fZ0Z0ZTg5dC1XRUt1NEZYbmxDWVlXbmg5TzRfQS1JVTVSRi05ZXlWVXoxamFtbG1TZlJqajB0TmVE
+novi hesla
+dsaASD23@#dsaASD23@#
+
+
+
+'''
