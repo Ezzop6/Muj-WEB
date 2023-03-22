@@ -11,7 +11,7 @@ if debug:
     from bl_pages.pojistenci_app_pages import pojistenci_app
     from bl_pages.kalendar import kalendar
     from bl_pages.klobasovnik import klobasovnik
-    from database import DbUsersMain, DbPojistenciProducts
+    from database import DbUsersMain
     
 else:
     from api.my_packages._tools import *
@@ -20,7 +20,7 @@ else:
     from api.bl_pages.pojistenci_app_pages import pojistenci_app
     from api.bl_pages.kalendar import kalendar
     from api.bl_pages.klobasovnik import klobasovnik
-    from api.database import DbUsersMain, DbPojistenciProducts
+    from api.database import DbUsersMain
     
 
 from flask_session import Session
@@ -31,7 +31,6 @@ from redis import Redis
 import os
 
 db = DbUsersMain()
-db_product = DbPojistenciProducts()
 
 login_manager = LoginManager()
 
