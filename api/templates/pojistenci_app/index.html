@@ -14,11 +14,7 @@ nejaka stilizace pro prihlasene uzivatele
 <section class="produkt_section">
         <div class="product">
             <div  class="left">
-                {% if product['imgs_path'] %}
-                {% set img_path = get_random_produkt_img(product['imgs_path']) %}
-                    <img class="product_img" src={{img_path}} alt="product image">
-                {% endif %}
-            </div>
+           
             <div class="right">
                 <h2>{{ product['name'] }}</h2>
                 <p>{{ product['description'] }}</p>
