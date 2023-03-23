@@ -164,7 +164,36 @@ class DbUsersMain(DbConnection):
         
     def set_user_birthdate(self, user_id, birthdate):
         '''Sets user birthdate'''
-        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"birthdate":birthdate.strftime('%Y.%m.%d')}})
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"birth_date":birthdate}})
+        
+    def set_user_birth_number(self, user_id, birth_number):
+        '''Sets user birth number'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"birth_number":birth_number}})
+        
+    def ser_user_email(self, user_id, email):
+        '''Sets user email'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"email":email}})
+        
+    def set_user_phone(self, user_id, phone_number):
+        '''Sets user phone'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"phone_number":phone_number}})
+        
+    def set_user_city(self, user_id, city):
+        '''Sets user city'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"city":city}})
+        
+    def set_user_street_number(self, user_id, street_number):
+        '''Sets user street'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"street_number":street_number}})
+        
+    def set_user_street(self, user_id, street):
+        '''Sets user street'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"street":street}})
+        
+    def set_user_zip_code(self, user_id, zip_code):
+        '''Sets user zip code'''
+        self.user_db.update_one({"_id":ObjectId(user_id)}, {"$set":{"zip_code":zip_code}})
+        
         
     # functions for sorting users and finding users
     def sort_users_by(self, sort_direction='asc', sort_by='login'):
@@ -188,9 +217,18 @@ class DbUsersMain(DbConnection):
         for _ in range(number_of_users):
             fake_users = RandomUser().new_user()
             if self.check_if_user_exists(fake_users["login"]):
-                self.user_db.insert_one(fake_users)
-                print(f"User {fake_users} added")
-    
+                self.create_user(fake_users["login"], fake_users["password"])
+                user_id = self.get_user_id(fake_users["login"])
+                self.set_user_name(user_id, fake_users["name"])
+                self.set_user_surname(user_id, fake_users["surname"])
+                self.set_user_birthdate(user_id, fake_users["birth_date"])
+                self.set_user_birth_number(user_id, fake_users["birth_number"])
+                self.ser_user_email(user_id, fake_users["email"])
+                self.set_user_phone(user_id, fake_users["phone_number"])
+                self.set_user_city(user_id, fake_users["city"])
+                self.set_user_street(user_id, fake_users["street_number"])
+                self.set_user_street_number(user_id, fake_users["street"])
+                self.set_user_zip_code(user_id, fake_users["zip_code"])    
 class DbKalendar(DbUsersMain):
     def __init__(self):
         super().__init__()

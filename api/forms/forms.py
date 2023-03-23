@@ -28,20 +28,20 @@ class CustomTest:
         special_characters = "!@#$%^&*()_+|:<>?[]\;',./`~ěščřžýáíéúůťďňóĚŠČŘŽÝÁÍÉÚŮŤĎŇÓ"
         min_length = 8
         digit = sum(1 for letter in password if letter.isdigit())
-        special = sum(1 for letter in password if letter in special_characters)
-        small_letter = sum(1 for letter in password if letter.islower())
-        big_letter = sum(1 for letter in password if letter.isupper())
+        # special = sum(1 for letter in password if letter in special_characters)
+        # small_letter = sum(1 for letter in password if letter.islower())
+        # big_letter = sum(1 for letter in password if letter.isupper())
         
         if min_length > len(password):
             raise ValidationError(f"Heslo musí mít minimálně {min_length} znaků")
         elif digit == 0:
             raise ValidationError("Heslo musí obsahovat alespoň jedno číslo")
-        elif special == 0:
-            raise ValidationError("Heslo musí obsahovat alespoň jeden speciální znak")
-        elif small_letter == 0:
-            raise ValidationError("Heslo musí obsahovat alespoň jedno malé písmeno")
-        elif big_letter == 0:
-            raise ValidationError("Heslo musí obsahovat alespoň jedno velké písmeno")
+        # elif special == 0:
+        #     raise ValidationError("Heslo musí obsahovat alespoň jeden speciální znak")
+        # elif small_letter == 0:
+        #     raise ValidationError("Heslo musí obsahovat alespoň jedno malé písmeno")
+        # elif big_letter == 0:
+        #     raise ValidationError("Heslo musí obsahovat alespoň jedno velké písmeno")
         elif password != password2:
             raise ValidationError("Hesla se neshodují")
         
