@@ -51,10 +51,6 @@ class User(UserMixin):
 
 
 
-def get_random_produkt_img(img_path):
-    img_list = listdir(f"api/static/img/products/{img_path}/")
-    img_path = f"/static/img/products/{img_path}/{choice(img_list)}"
-    return f"/static/..{img_path}"
 
 
 class PasswordGenerator:
